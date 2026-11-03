@@ -422,7 +422,7 @@ export const achievementsData = {
 };
 
 export const emailjsConfig = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY",
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_9xluspg",
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_q23codh",
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "9chjyW5jdRDHGcviX",
 };
