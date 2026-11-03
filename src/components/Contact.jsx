@@ -28,10 +28,19 @@ export default function Contact({ onOpenResume }) {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'simulated' | 'error' | null
   const [statusMessage, setStatusMessage] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const isEmailJsConfigured = Boolean(
+    emailjsConfig.publicKey &&
+    emailjsConfig.serviceId &&
+    emailjsConfig.templateId &&
+    !emailjsConfig.publicKey.includes('YOUR_') &&
+    !emailjsConfig.serviceId.includes('YOUR_') &&
+    !emailjsConfig.templateId.includes('YOUR_')
+  );
 
   const validate = () => {
     const newErrors = {};
@@ -82,11 +91,6 @@ export default function Contact({ onOpenResume }) {
     setStatusMessage('');
 
     try {
-      const isEmailJsConfigured =
-        emailjsConfig.publicKey &&
-        emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY' &&
-        !emailjsConfig.publicKey.includes('YOUR_');
-
       if (isEmailJsConfigured) {
         await emailjs.send(
           emailjsConfig.serviceId,
@@ -97,31 +101,44 @@ export default function Contact({ onOpenResume }) {
             subject: formData.subject,
             message: formData.message,
             to_name: personalInfo.name,
+            reply_to: formData.email,
           },
           emailjsConfig.publicKey
         );
+
+        confetti({
+          particleCount: 80,
+          spread: 60,
+          origin: { y: 0.8 },
+          colors: ['#8B5CF6', '#06B6D4', '#10B981'],
+        });
+
+        setSubmitStatus('success');
+        setStatusMessage(
+          "Thank you! Your email has been delivered directly to Siddharth via EmailJS. I will respond promptly."
+        );
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        // Realistic simulated response for testing & preview mode
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        // Fallback preview mode when keys are not yet inserted
+        await new Promise((resolve) => setTimeout(resolve, 600));
+
+        confetti({
+          particleCount: 60,
+          spread: 50,
+          origin: { y: 0.8 },
+          colors: ['#8B5CF6', '#06B6D4'],
+        });
+
+        setSubmitStatus('simulated');
+        setStatusMessage(
+          "Message submitted! (To send directly through your mail app right now, click the 'Send via Email App' button below, or add your EmailJS keys in .env)."
+        );
       }
-
-      confetti({
-        particleCount: 75,
-        spread: 60,
-        origin: { y: 0.8 },
-        colors: ['#8B5CF6', '#06B6D4', '#10B981'],
-      });
-
-      setSubmitStatus('success');
-      setStatusMessage(
-        "Thank you! Your message has been dispatched successfully. I'll get back to you promptly."
-      );
-      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (err) {
-      console.error('Contact submit error:', err);
+      console.error('EmailJS submit error:', err);
       setSubmitStatus('error');
       setStatusMessage(
-        "Failed to send message via automated gateway. Please email me directly at " +
+        "Could not send via EmailJS gateway. You can send this message directly via your email client or write to " +
           personalInfo.contactInfo.email
       );
     } finally {
@@ -139,6 +156,12 @@ export default function Contact({ onOpenResume }) {
       setTimeout(() => setCopiedPhone(false), 2000);
     }
   };
+
+  const mailtoUrl = `mailto:${personalInfo.contactInfo.email}?subject=${encodeURIComponent(
+    formData.subject || 'Portfolio Inquiry - Software Developer'
+  )}&body=${encodeURIComponent(
+    `Hi Siddharth,\n\nName: ${formData.name || ''}\nEmail: ${formData.email || ''}\n\nMessage:\n${formData.message || ''}\n`
+  )}`;
 
   return (
     <section id="contact" className="py-24 relative bg-[#09090B] overflow-hidden">
@@ -196,7 +219,7 @@ export default function Contact({ onOpenResume }) {
 
                 <button
                   onClick={() => copyToClipboard(personalInfo.contactInfo.email, 'email')}
-                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white border border-[#27272A] transition-colors shrink-0"
+                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white border border-[#27272A] transition-colors shrink-0 cursor-pointer"
                   title="Copy email to clipboard"
                 >
                   {copiedEmail ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
@@ -222,7 +245,7 @@ export default function Contact({ onOpenResume }) {
 
                 <button
                   onClick={() => copyToClipboard(personalInfo.contactInfo.phone, 'phone')}
-                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white border border-[#27272A] transition-colors shrink-0"
+                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white border border-[#27272A] transition-colors shrink-0 cursor-pointer"
                   title="Copy phone to clipboard"
                 >
                   {copiedPhone ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
@@ -274,9 +297,15 @@ export default function Contact({ onOpenResume }) {
           {/* Right Column: Functional Contact Form */}
           <div className="lg:col-span-7">
             <div className="p-6 sm:p-8 rounded-2xl bg-[#18181B] border border-[#27272A]">
-              <h3 className="text-xl font-heading font-bold text-white mb-2">
-                Send a Message
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 className="text-xl font-heading font-bold text-white">
+                  Send a Message
+                </h3>
+                <span className="text-[11px] font-mono text-purple-400 bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/30 self-start sm:self-auto">
+                  {isEmailJsConfigured ? "EmailJS Gateway Active" : "Direct Email Ready"}
+                </span>
+              </div>
+              
               <p className="text-xs text-[#A1A1AA] mb-6 font-sans">
                 Fill in the details below and I'll respond as soon as possible.
               </p>
@@ -285,6 +314,22 @@ export default function Contact({ onOpenResume }) {
                 <div className="mb-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/40 flex items-start gap-3 text-xs text-emerald-300">
                   <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
                   <span>{statusMessage}</span>
+                </div>
+              )}
+
+              {submitStatus === 'simulated' && (
+                <div className="mb-6 p-4 rounded-xl bg-purple-950/40 border border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-purple-300">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={16} className="shrink-0 mt-0.5 text-purple-400" />
+                    <span>{statusMessage}</span>
+                  </div>
+                  <a
+                    href={mailtoUrl}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-mono text-[11px] shrink-0"
+                  >
+                    <Mail size={12} />
+                    <span>Open in Email App</span>
+                  </a>
                 </div>
               )}
 
@@ -390,15 +435,26 @@ export default function Contact({ onOpenResume }) {
                   )}
                 </div>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white font-heading font-medium text-xs shadow-md shadow-purple-600/20 transition-all cursor-pointer"
-                >
-                  <Send size={14} className={isSubmitting ? 'animate-pulse' : ''} />
-                  <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
-                </button>
+                {/* Buttons Row */}
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white font-heading font-medium text-xs shadow-md shadow-purple-600/20 transition-all cursor-pointer"
+                  >
+                    <Send size={14} className={isSubmitting ? 'animate-pulse' : ''} />
+                    <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
+                  </button>
+
+                  <a
+                    href={mailtoUrl}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#18181B] hover:bg-[#202025] text-[#D4D4D8] hover:text-white border border-[#27272A] hover:border-purple-500/30 text-xs font-mono transition-colors"
+                    title="Send using your default email application"
+                  >
+                    <Mail size={14} className="text-cyan-400" />
+                    <span>Send via Email App</span>
+                  </a>
+                </div>
               </form>
             </div>
           </div>
