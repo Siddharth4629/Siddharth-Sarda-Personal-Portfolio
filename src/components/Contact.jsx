@@ -115,31 +115,24 @@ export default function Contact({ onOpenResume }) {
 
         setSubmitStatus('success');
         setStatusMessage(
-          "Thank you! Your email has been delivered directly to Siddharth via EmailJS. I will respond promptly."
+          "Thank you! Your message has been sent successfully. I will review it and get back to you promptly."
         );
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        // Fallback preview mode when keys are not yet inserted
-        await new Promise((resolve) => setTimeout(resolve, 600));
-
-        confetti({
-          particleCount: 60,
-          spread: 50,
-          origin: { y: 0.8 },
-          colors: ['#8B5CF6', '#06B6D4'],
-        });
-
-        setSubmitStatus('simulated');
+        setSubmitStatus('error');
         setStatusMessage(
-          "Message submitted! (To send directly through your mail app right now, click the 'Send via Email App' button below, or add your EmailJS keys in .env)."
+          "Email service is currently offline. Please send your message directly via email to " +
+            personalInfo.contactInfo.email +
+            " or connect with me on LinkedIn."
         );
       }
     } catch (err) {
       console.error('EmailJS submit error:', err);
       setSubmitStatus('error');
       setStatusMessage(
-        "Could not send via EmailJS gateway. You can send this message directly via your email client or write to " +
-          personalInfo.contactInfo.email
+        "Could not send message via the gateway. Please send directly via email to " +
+          personalInfo.contactInfo.email +
+          " or connect with me on LinkedIn."
       );
     } finally {
       setIsSubmitting(false);
@@ -252,32 +245,57 @@ export default function Contact({ onOpenResume }) {
                 </button>
               </div>
 
-              {/* Social Profiles Grid */}
-              <div className="pt-2 border-t border-[#27272A]">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] block mb-3">
-                  Professional Channels:
+              {/* Professional Profiles: LinkedIn & GitHub */}
+              <div className="pt-2 border-t border-[#27272A] space-y-2.5">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] block">
+                  Professional Profiles:
                 </span>
-                <div className="grid grid-cols-2 gap-3">
-                  <a
-                    href={personalInfo.socialLinks.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-cyan-500/40 text-xs font-mono text-[#D4D4D8] flex items-center gap-2 transition-all group"
-                  >
-                    <Linkedin size={16} className="text-cyan-400 group-hover:scale-110 transition-transform" />
-                    <span>LinkedIn</span>
-                  </a>
 
-                  <a
-                    href={personalInfo.socialLinks.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-purple-500/40 text-xs font-mono text-[#D4D4D8] flex items-center gap-2 transition-all group"
-                  >
-                    <Github size={16} className="text-purple-400 group-hover:scale-110 transition-transform" />
-                    <span>GitHub</span>
-                  </a>
-                </div>
+                {/* LinkedIn Profile Card */}
+                <a
+                  href={personalInfo.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-cyan-500/50 flex items-center justify-between transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-cyan-600/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+                      <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-heading font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                        LinkedIn Profile
+                      </div>
+                      <div className="text-[11px] font-mono text-[#A1A1AA] truncate">
+                        in/siddharth-sarda-5090a1358
+                      </div>
+                    </div>
+                  </div>
+                  <ExternalLink size={14} className="text-[#71717A] group-hover:text-cyan-400 transition-colors" />
+                </a>
+
+                {/* GitHub Profile Card */}
+                <a
+                  href={personalInfo.socialLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-purple-500/50 flex items-center justify-between transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-purple-600/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
+                      <Github size={18} className="group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-heading font-semibold text-white group-hover:text-purple-300 transition-colors">
+                        GitHub Profile
+                      </div>
+                      <div className="text-[11px] font-mono text-[#A1A1AA] truncate">
+                        github.com/Siddharth4629
+                      </div>
+                    </div>
+                  </div>
+                  <ExternalLink size={14} className="text-[#71717A] group-hover:text-purple-400 transition-colors" />
+                </a>
               </div>
 
               {/* Download Resume Link */}
@@ -312,31 +330,27 @@ export default function Contact({ onOpenResume }) {
 
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/40 flex items-start gap-3 text-xs text-emerald-300">
-                  <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
-                  <span>{statusMessage}</span>
-                </div>
-              )}
-
-              {submitStatus === 'simulated' && (
-                <div className="mb-6 p-4 rounded-xl bg-purple-950/40 border border-purple-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-purple-300">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 size={16} className="shrink-0 mt-0.5 text-purple-400" />
-                    <span>{statusMessage}</span>
+                  <CheckCircle2 size={18} className="shrink-0 mt-0.5 text-emerald-400" />
+                  <div className="space-y-0.5">
+                    <div className="font-semibold text-emerald-200">Message Delivered Successfully!</div>
+                    <div className="text-emerald-300/90">{statusMessage}</div>
                   </div>
-                  <a
-                    href={mailtoUrl}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-mono text-[11px] shrink-0"
-                  >
-                    <Mail size={12} />
-                    <span>Open in Email App</span>
-                  </a>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 rounded-xl bg-rose-950/40 border border-rose-800/40 flex items-start gap-3 text-xs text-rose-300">
-                  <AlertCircle size={18} className="shrink-0 mt-0.5" />
-                  <span>{statusMessage}</span>
+                <div className="mb-6 p-4 rounded-xl bg-rose-950/40 border border-rose-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-rose-300">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle size={18} className="shrink-0 mt-0.5 text-rose-400" />
+                    <span>{statusMessage}</span>
+                  </div>
+                  <a
+                    href={mailtoUrl}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-mono text-[11px] shrink-0 self-start sm:self-auto"
+                  >
+                    <Mail size={12} />
+                    <span>Send via Email App</span>
+                  </a>
                 </div>
               )}
 

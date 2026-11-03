@@ -81,23 +81,32 @@ export default function Projects({ onSelectProject }) {
                     {project.shortDescription}
                   </p>
 
-                  {/* Showcase Features Grid */}
-                  <div className="space-y-2 pt-2">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA] block">
-                      Core Implementation Highlights:
-                    </span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {project.showcaseFeatures.slice(0, 4).map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-start gap-2 text-xs text-[#E4E4E7]">
-                          <CheckCircle2 size={13} className="text-purple-400 mt-0.5 shrink-0" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
+                  {/* Problem Solved & What I Implemented */}
+                  <div className="space-y-2.5 pt-1">
+                    <div className="p-3 rounded-xl bg-[#09090B] border border-[#27272A] space-y-1">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-purple-400 font-semibold block">
+                        Problem Solved:
+                      </span>
+                      <p className="text-xs text-[#D4D4D8] leading-relaxed font-sans">
+                        {project.problemSolved}
+                      </p>
+                    </div>
+
+                    <div className="p-3 rounded-xl bg-[#09090B] border border-[#27272A] space-y-1">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-semibold block">
+                        What I Implemented:
+                      </span>
+                      <p className="text-xs text-[#D4D4D8] leading-relaxed font-sans">
+                        {project.whatIImplemented}
+                      </p>
                     </div>
                   </div>
 
-                  {/* Technologies */}
-                  <div className="pt-2">
+                  {/* Technologies Used */}
+                  <div className="pt-1">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A] block mb-1.5">
+                      Technologies Used:
+                    </span>
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((tech, tIdx) => (
                         <span
@@ -191,27 +200,42 @@ export default function Projects({ onSelectProject }) {
                   </div>
 
                   {/* Card Body */}
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-xl sm:text-2xl font-heading font-bold text-white group-hover:text-purple-300 transition-colors">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-sans">
-                      {project.shortDescription}
-                    </p>
-
-                    {/* Features list */}
-                    <div className="space-y-1.5 pt-1">
-                      {project.showcaseFeatures.slice(0, 3).map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
-                          <CheckCircle2 size={13} className="text-cyan-400 mt-0.5 shrink-0" />
-                          <span className="line-clamp-1">{feat}</span>
-                        </div>
-                      ))}
+                  <div className="p-6 space-y-3.5">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-heading font-bold text-white group-hover:text-purple-300 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-purple-300 font-sans mt-0.5">
+                        {project.subtitle}
+                      </p>
                     </div>
 
-                    {/* Tech pills */}
-                    <div className="pt-2">
+                    {/* Problem Solved & What I Implemented */}
+                    <div className="space-y-2">
+                      <div className="p-2.5 rounded-lg bg-[#09090B] border border-[#27272A] space-y-0.5">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-purple-400 font-semibold block">
+                          Problem Solved:
+                        </span>
+                        <p className="text-xs text-[#A1A1AA] leading-relaxed font-sans">
+                          {project.problemSolved}
+                        </p>
+                      </div>
+
+                      <div className="p-2.5 rounded-lg bg-[#09090B] border border-[#27272A] space-y-0.5">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-semibold block">
+                          What I Implemented:
+                        </span>
+                        <p className="text-xs text-[#D4D4D8] leading-relaxed font-sans">
+                          {project.whatIImplemented}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Technologies Used */}
+                    <div>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A] block mb-1.5">
+                        Technologies Used:
+                      </span>
                       <div className="flex flex-wrap gap-1.5">
                         {project.technologies.slice(0, 5).map((tech, tIdx) => (
                           <span

@@ -297,7 +297,7 @@ export default function Hero({ onOpenResume }) {
                 </p>
                 <p className="pl-4">
                   <span className="text-[#F4F4F5]">coreFoundations</span>: [
-                  <span className="text-cyan-300">'DSA (100+)'</span>,{' '}
+                  <span className="text-cyan-300">'Data Structures & Algorithms'</span>,{' '}
                   <span className="text-cyan-300">'DBMS'</span>,{' '}
                   <span className="text-cyan-300">'OOP'</span>],
                 </p>

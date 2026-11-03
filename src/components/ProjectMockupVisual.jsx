@@ -184,7 +184,7 @@ export default function ProjectMockupVisual({ projectId }) {
         <div className="bg-[#18181B] border border-cyan-500/30 rounded-lg p-2.5 space-y-1 bg-cyan-950/10">
           <div className="text-[9px] font-mono text-cyan-400 uppercase">Sprint Retrospective</div>
           <div className="text-xs font-semibold text-[#F4F4F5] truncate">
-            Velocity: +24% vs Target
+            Status: Active Iteration
           </div>
           <div className="text-[9px] text-emerald-400 font-mono">
             AI Summary Ready

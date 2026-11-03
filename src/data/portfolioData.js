@@ -5,11 +5,10 @@
 
 export const personalInfo = {
   name: "Siddharth Sarda",
-  title: "Software Developer",
+  title: "Computer Science Undergraduate | Aspiring Software Engineer",
   heroLabel: "HELLO, I'M",
-  tagline: "Building full-stack applications and AI-powered solutions.",
-  intro:
-    "I'm a Computer Science undergraduate at Parul University, graduating in 2027. I enjoy building reliable software applications, developing backend systems and creating AI-powered products that solve practical problems.",
+  tagline: "Computer Science Undergraduate | Aspiring Software Engineer",
+  intro: "I build practical software solutions using modern web technologies, backend systems and AI integrations. Passionate about problem-solving, learning new technologies and developing scalable applications.",
   profileSummary:
     "Computer Science undergraduate with strong foundations in Data Structures, Algorithms, Object-Oriented Programming, and DBMS. Skilled in C++, Java, Python, JavaScript, and backend development using Node.js and Express.js. Experienced in building full-stack applications, REST APIs, database-driven solutions, and AI-powered applications using Google Gemini API. Seeking a Graduate Software Engineer role to develop reliable and scalable software systems.",
   about: {
@@ -161,6 +160,8 @@ export const featuredProjects = [
     role: "AI Application Developer",
     featuredBadge: "Flagship Project • Gemini 2.5 Flash",
     tagline: "Personalized Career Recommendations, Skill-Gap Diagnostics & Structured AI Mentorship",
+    problemSolved: "Students face fragmented, confusing career guidance across diverse fields, lacking personalized roadmaps, objective skill-gap evaluations, and structured interview practice.",
+    whatIImplemented: "Engineered the end-to-end full-stack platform, integrated Gemini 2.5 Flash with strict JSON schemas, constructed a secure Node/Express AI gateway, and implemented hybrid Supabase PostgreSQL and LocalStorage persistence.",
     shortDescription:
       "An AI-powered career guidance platform designed to support personalized career discovery across 12 industry sectors and help users make informed education and career decisions.",
     fullDescription:
@@ -205,6 +206,8 @@ export const featuredProjects = [
     role: "Full Stack Developer",
     featuredBadge: "Real-Time Systems • Neon PostgreSQL",
     tagline: "Real-time Queue & Ordering Platform (PostgreSQL, Prisma, Clerk, Ably)",
+    problemSolved: "Physical queue congestion and chaotic ordering at university dining and service counters cause extensive waiting times, crowding, and lack of preparation transparency.",
+    whatIImplemented: "Architected the full-stack system with React and Node/Express; designed relational schemas on serverless Neon PostgreSQL using Prisma ORM; configured Clerk multi-role auth; and integrated Ably WebSockets for real-time token tracking.",
     shortDescription:
       "A smart queue and ordering platform designed to reduce physical waiting times and improve the service experience in university and campus environments.",
     fullDescription:
@@ -250,6 +253,8 @@ export const featuredProjects = [
     role: "Developer – Academic Project",
     featuredBadge: "Relational DBMS • ACID Compliant",
     tagline: "CRUD Application with Role-Based Access Control & Optimized SQL Queries",
+    problemSolved: "Paper or spreadsheet-based academic records cause data redundancy, lack audit trails, and pose security vulnerabilities when administrators and faculty need distinct access levels.",
+    whatIImplemented: "Designed a 3NF normalized relational schema in MySQL, implemented ACID-compliant transactions and index-tuned queries, and built Node.js/Express REST API endpoints with role-based authorization middleware.",
     shortDescription:
       "A CRUD-based application designed to manage student records efficiently.",
     fullDescription:

@@ -4,23 +4,51 @@ import {
   GraduationCap,
   Sparkles,
   Code2,
-  Cpu,
   Database,
   Layers,
   ArrowRight,
   Server,
   Workflow,
-  CheckCircle2,
+  Cpu,
+  BookOpen,
 } from 'lucide-react';
 import { personalInfo, educationData } from '../data/portfolioData';
 
 export default function About() {
-  const btechInfo = educationData.find((edu) => edu.degree.includes('B.Tech'));
-
   const coreFocusAreas = [
-    { title: "Software Engineering", desc: "Reliable system designs, clean code & modular architecture", icon: Code2, color: "#8B5CF6" },
-    { title: "Full Stack Development", desc: "Responsive React interfaces connected to scalable Node/Express backends", icon: Layers, color: "#06B6D4" },
-    { title: "AI Application Development", desc: "LLM integration, structured JSON schemas & prompt engineering", icon: Cpu, color: "#10B981" },
+    {
+      title: "DSA & Problem Solving",
+      desc: "Analyzing algorithmic efficiency, data structures, and asymptotic time/space complexity.",
+      icon: Workflow,
+      color: "#8B5CF6",
+    },
+    {
+      title: "OOP & System Architecture",
+      desc: "Structuring modular, extensible code using encapsulation, inheritance, and clean design patterns.",
+      icon: Code2,
+      color: "#06B6D4",
+    },
+    {
+      title: "Backend Development",
+      desc: "Building reliable REST APIs, 3NF relational schemas, indexing, and ACID transaction safety.",
+      icon: Server,
+      color: "#10B981",
+    },
+    {
+      title: "Software Engineering",
+      desc: "Engineering scalable, reliable applications with clean architectures and disciplined testing.",
+      icon: Layers,
+      color: "#F59E0B",
+    },
+  ];
+
+  const academicFocusTopics = [
+    "Data Structures & Algorithms",
+    "Object-Oriented Programming (OOP)",
+    "Database Management Systems (DBMS)",
+    "Operating Systems Concepts",
+    "RESTful API Design",
+    "Software Engineering & Architecture",
   ];
 
   return (
@@ -34,17 +62,17 @@ export default function About() {
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-800/40 text-purple-300 text-xs font-mono mb-3">
             <Sparkles size={12} />
-            <span>BACKGROUND & ACADEMICS</span>
+            <span>BACKGROUND & CORE FOUNDATIONS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-[#F4F4F5]">
-            {personalInfo.about.heading}
+            About <span className="gradient-text-purple">Me</span>
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mt-3" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Personal Narrative */}
+          {/* Left Column: CSE Profile & Core Pillars */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,26 +83,40 @@ export default function About() {
             <div className="p-6 sm:p-8 rounded-2xl bg-[#18181B] border border-[#27272A] space-y-4">
               <h3 className="text-lg sm:text-xl font-heading font-semibold text-[#F4F4F5] flex items-center gap-2">
                 <Code2 className="text-purple-400" size={20} />
-                <span>Engineering Philosophy & Profile</span>
+                <span>Computer Science & Engineering Focus</span>
               </h3>
 
-              <p className="text-[#D4D4D8] leading-relaxed text-sm sm:text-base font-sans">
-                {personalInfo.about.narrative}
-              </p>
+              <div className="text-[#D4D4D8] leading-relaxed text-sm sm:text-base font-sans space-y-3">
+                <p>
+                  I am a Computer Science and Engineering undergraduate at <strong className="text-white">Parul University</strong> (Class of 2027), pursuing software development with a strong dedication to core computer science fundamentals.
+                </p>
+                <p>
+                  My engineering journey is grounded in <strong className="text-purple-300">Data Structures and Algorithms (DSA)</strong>, <strong className="text-cyan-300">Object-Oriented Programming (OOP)</strong>, and <strong className="text-emerald-300">Backend Systems</strong>. I focus on writing modular, well-documented code, evaluating algorithmic efficiency, and building structured relational database models.
+                </p>
+                <p className="text-xs sm:text-sm text-[#A1A1AA]">
+                  Across my projects, I apply an architecture-first approach — engineering secure RESTful APIs, enforcing relational database normalization (3NF), integrating real-time communication protocols, and building robust full-stack applications designed for reliability.
+                </p>
+              </div>
             </div>
 
-            {/* Core Focus Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Core Foundational Pillars Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {coreFocusAreas.map((focus, idx) => {
                 const Icon = focus.icon;
                 return (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-[#18181B] border border-[#27272A] hover:border-purple-500/40 transition-all space-y-1.5"
+                    className="p-4 rounded-xl bg-[#18181B] border border-[#27272A] hover:border-purple-500/40 transition-all space-y-1.5 group"
                   >
-                    <Icon size={18} style={{ color: focus.color }} />
-                    <h4 className="text-xs font-heading font-bold text-[#F4F4F5]">{focus.title}</h4>
-                    <p className="text-[11px] text-[#A1A1AA] leading-normal font-sans">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-[#09090B] border border-[#27272A]">
+                        <Icon size={16} style={{ color: focus.color }} />
+                      </div>
+                      <h4 className="text-xs font-heading font-bold text-[#F4F4F5] group-hover:text-purple-300 transition-colors">
+                        {focus.title}
+                      </h4>
+                    </div>
+                    <p className="text-[11px] text-[#A1A1AA] leading-relaxed font-sans pt-0.5">
                       {focus.desc}
                     </p>
                   </div>
@@ -83,7 +125,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: Academic Details & Quick Facts Card */}
+          {/* Right Column: Academic Details & Core Theoretical Foundations */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +154,7 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Specific Required Metrics */}
+              {/* Academic Status Metrics */}
               <div className="grid grid-cols-2 gap-3 mb-5">
                 <div className="p-3 rounded-xl bg-[#09090B] border border-[#27272A]">
                   <span className="text-[10px] font-mono text-[#A1A1AA] uppercase">Graduation Year</span>
@@ -128,24 +170,27 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Core Interests List */}
+              {/* Core Computer Science Foundations */}
               <div className="space-y-2 pt-4 border-t border-[#27272A]">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] block">
-                  Areas of Interest:
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] block">
+                    Core CS Disciplines:
+                  </span>
+                  <span className="text-[10px] font-mono text-purple-400">Theory & Systems</span>
+                </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {personalInfo.about.coreInterests.map((interest, i) => (
+                  {academicFocusTopics.map((topic, i) => (
                     <span
                       key={i}
                       className="px-2.5 py-1 rounded-md bg-[#09090B] text-[#D4D4D8] border border-[#27272A] text-xs font-mono"
                     >
-                      {interest}
+                      {topic}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[#27272A]">
+              <div className="mt-5 pt-3 border-t border-[#27272A] flex items-center justify-between">
                 <a
                   href="#education"
                   className="inline-flex items-center gap-1.5 text-xs font-mono text-purple-400 hover:text-purple-300 transition-colors"
@@ -153,6 +198,7 @@ export default function About() {
                   <span>View full academic timeline</span>
                   <ArrowRight size={12} />
                 </a>
+                <span className="text-[10px] font-mono text-[#71717A]">Parul Univ '27</span>
               </div>
             </div>
           </motion.div>

@@ -129,7 +129,7 @@ All personal details, URLs, social handles, and credentials are consolidated in 
 // src/data/portfolioData.js
 export const personalInfo = {
   name: "Siddharth Sarda",
-  title: "Software Developer",
+  title: "Computer Science Undergraduate | Aspiring Software Engineer",
   contactInfo: {
     phone: "+91-8788668577",
     email: "siddharthsarda742@gmail.com",

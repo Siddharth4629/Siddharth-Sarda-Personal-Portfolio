@@ -81,12 +81,35 @@ export default function ProjectModal({ project, onClose }) {
             </p>
           </div>
 
+          {/* Problem Solved & What I Implemented */}
+          {project.problemSolved && (
+            <div className="space-y-3">
+              <div className="p-3.5 rounded-xl bg-[#09090B] border border-[#27272A] space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-400 font-semibold block">
+                  Problem Solved
+                </span>
+                <p className="text-xs sm:text-sm text-[#D4D4D8] leading-relaxed">
+                  {project.problemSolved}
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#09090B] border border-[#27272A] space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-semibold block">
+                  What I Implemented
+                </span>
+                <p className="text-xs sm:text-sm text-[#D4D4D8] leading-relaxed">
+                  {project.whatIImplemented}
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Description */}
           <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#A1A1AA]">
               Project Overview
             </h4>
-            <p className="text-sm sm:text-base text-[#D4D4D8] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed">
               {project.fullDescription || project.shortDescription}
             </p>
           </div>
