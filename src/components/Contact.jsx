@@ -4,16 +4,15 @@ import {
   Mail,
   Linkedin,
   Github,
-  FileDown,
   Send,
   CheckCircle2,
   AlertCircle,
   Copy,
   Check,
   Sparkles,
-  ExternalLink,
-  MessageSquare,
   Phone,
+  FileDown,
+  ExternalLink,
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import confetti from 'canvas-confetti';
@@ -38,7 +37,7 @@ export default function Contact({ onOpenResume }) {
     const newErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Please provide your full name.';
+      newErrors.name = 'Please provide your name.';
     } else if (formData.name.trim().length < 2) {
       newErrors.name = 'Name must be at least 2 characters.';
     }
@@ -47,7 +46,7 @@ export default function Contact({ onOpenResume }) {
     if (!formData.email.trim()) {
       newErrors.email = 'Please provide your email address.';
     } else if (!emailRegex.test(formData.email.trim())) {
-      newErrors.email = 'Please enter a valid email address.';
+      newErrors.email = 'Please provide a valid email address.';
     }
 
     if (!formData.subject.trim()) {
@@ -57,9 +56,9 @@ export default function Contact({ onOpenResume }) {
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Please write a brief message.';
+      newErrors.message = 'Please enter your message.';
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long.';
+      newErrors.message = 'Message must be at least 10 characters.';
     }
 
     setErrors(newErrors);
@@ -83,10 +82,9 @@ export default function Contact({ onOpenResume }) {
     setStatusMessage('');
 
     try {
-      // Check if EmailJS is configured with a real public key
       const isEmailJsConfigured =
         emailjsConfig.publicKey &&
-        emailjsConfig.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY' &&
+        emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY' &&
         !emailjsConfig.publicKey.includes('YOUR_');
 
       if (isEmailJsConfigured) {
@@ -103,13 +101,12 @@ export default function Contact({ onOpenResume }) {
           emailjsConfig.publicKey
         );
       } else {
-        // Realistic simulation delay for development/evaluation mode
+        // Realistic simulated response for testing & preview mode
         await new Promise((resolve) => setTimeout(resolve, 800));
       }
 
-      // Success celebration
       confetti({
-        particleCount: 80,
+        particleCount: 75,
         spread: 60,
         origin: { y: 0.8 },
         colors: ['#8B5CF6', '#06B6D4', '#10B981'],
@@ -117,44 +114,37 @@ export default function Contact({ onOpenResume }) {
 
       setSubmitStatus('success');
       setStatusMessage(
-        "Thank you! Your message has been sent successfully. I'll get back to you promptly."
+        "Thank you! Your message has been dispatched successfully. I'll get back to you promptly."
       );
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (err) {
-      console.error('Contact form transmission error:', err);
-      // Fallback message with direct mailto
+      console.error('Contact submit error:', err);
       setSubmitStatus('error');
       setStatusMessage(
-        'Unable to send via web API right now. Please use the direct email link below to reach me instantly!'
+        "Failed to send message via automated gateway. Please email me directly at " +
+          personalInfo.contactInfo.email
       );
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(personalInfo.socialLinks.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
+  const copyToClipboard = (text, type) => {
+    navigator.clipboard.writeText(text);
+    if (type === 'email') {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } else {
+      setCopiedPhone(true);
+      setTimeout(() => setCopiedPhone(false), 2000);
+    }
   };
-
-  const copyPhoneToClipboard = () => {
-    navigator.clipboard.writeText(personalInfo.contactInfo.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2500);
-  };
-
-  const mailtoLink = `mailto:${personalInfo.socialLinks.email}?subject=${encodeURIComponent(
-    formData.subject || 'Portfolio Inquiry / Opportunity'
-  )}&body=${encodeURIComponent(
-    `Hi Siddharth,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-  )}`;
 
   return (
     <section id="contact" className="py-24 relative bg-[#09090B] overflow-hidden">
-      {/* Background ambient accents */}
-      <div className="glow-purple -bottom-20 left-1/4 opacity-40 pointer-events-none" />
-      <div className="glow-cyan -top-20 right-1/4 opacity-35 pointer-events-none" />
+      {/* Ambient background glows */}
+      <div className="glow-purple -bottom-40 -left-40 opacity-30 pointer-events-none" />
+      <div className="glow-cyan -top-40 -right-40 opacity-25 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -162,80 +152,68 @@ export default function Contact({ onOpenResume }) {
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-800/40 text-purple-300 text-xs font-mono mb-3">
             <Sparkles size={12} />
-            <span>LET'S CONNECT</span>
+            <span>GET IN TOUCH</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F4F4F5] max-w-3xl">
-            Have an opportunity or interesting idea?{' '}
-            <span className="gradient-text-purple">Let's connect.</span>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight text-[#F4F4F5]">
+            Let's Build Something <span className="gradient-text-purple">Meaningful Together.</span>
           </h2>
-          <p className="mt-4 text-base text-[#A1A1AA] max-w-xl">
-            I'm currently seeking Software Engineering and Full-Stack Internships. Feel free to drop a message or reach out across any channel.
+          <p className="mt-3 text-sm sm:text-base text-[#A1A1AA] max-w-xl font-sans">
+            I'm open to software development opportunities, internships, technical collaboration and interesting projects. Feel free to connect with me.
           </p>
           <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Direct Contact Details & Links */}
+          {/* Left Column: Direct Contact & Profiles */}
           <div className="lg:col-span-5 space-y-6">
-            
-            {/* Quick Contact Card */}
-            <div className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#18181B] border border-[#27272A] space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-[#F4F4F5] mb-1">
+                <h3 className="text-xl font-heading font-bold text-white mb-1">
                   Contact Information
                 </h3>
-                <p className="text-xs text-[#A1A1AA]">
-                  Quickest response times via direct email and LinkedIn messages.
+                <p className="text-xs text-[#A1A1AA] font-sans">
+                  Reach out through email, phone, or connect on professional networks.
                 </p>
               </div>
 
-              {/* Email Address with Copy Button */}
+              {/* Email item */}
               <div className="p-4 rounded-xl bg-[#09090B] border border-[#27272A] flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-purple-600/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
                     <Mail size={18} />
                   </div>
                   <div className="overflow-hidden">
-                    <span className="text-[10px] font-mono text-[#A1A1AA] block uppercase">
-                      Email Address
-                    </span>
+                    <span className="text-[10px] font-mono uppercase text-[#A1A1AA] block">Direct Email</span>
                     <a
-                      href={`mailto:${personalInfo.socialLinks.email}`}
-                      className="text-xs sm:text-sm font-mono text-[#F4F4F5] hover:text-purple-300 truncate block transition-colors"
+                      href={`mailto:${personalInfo.contactInfo.email}`}
+                      className="text-xs sm:text-sm font-mono text-white hover:text-purple-300 transition-colors truncate block"
                     >
-                      {personalInfo.socialLinks.email}
+                      {personalInfo.contactInfo.email}
                     </a>
                   </div>
                 </div>
 
                 <button
-                  onClick={copyToClipboard}
-                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-[#F4F4F5] border border-[#27272A] transition-colors shrink-0"
+                  onClick={() => copyToClipboard(personalInfo.contactInfo.email, 'email')}
+                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white border border-[#27272A] transition-colors shrink-0"
                   title="Copy email to clipboard"
-                  aria-label="Copy email"
                 >
-                  {copiedEmail ? (
-                    <Check size={16} className="text-emerald-400" />
-                  ) : (
-                    <Copy size={16} />
-                  )}
+                  {copiedEmail ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
                 </button>
               </div>
 
-              {/* Phone Number with Call & Copy Button */}
+              {/* Phone item */}
               <div className="p-4 rounded-xl bg-[#09090B] border border-[#27272A] flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-600/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
                     <Phone size={18} />
                   </div>
                   <div className="overflow-hidden">
-                    <span className="text-[10px] font-mono text-[#A1A1AA] block uppercase">
-                      Phone Number
-                    </span>
+                    <span className="text-[10px] font-mono uppercase text-[#A1A1AA] block">Phone / WhatsApp</span>
                     <a
                       href={`tel:${personalInfo.contactInfo.phone}`}
-                      className="text-xs sm:text-sm font-mono text-[#F4F4F5] hover:text-cyan-300 truncate block transition-colors"
+                      className="text-xs sm:text-sm font-mono text-white hover:text-cyan-300 transition-colors truncate block"
                     >
                       {personalInfo.contactInfo.phone}
                     </a>
@@ -243,284 +221,184 @@ export default function Contact({ onOpenResume }) {
                 </div>
 
                 <button
-                  onClick={copyPhoneToClipboard}
-                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-[#F4F4F5] border border-[#27272A] transition-colors shrink-0"
-                  title="Copy phone number to clipboard"
-                  aria-label="Copy phone number"
+                  onClick={() => copyToClipboard(personalInfo.contactInfo.phone, 'phone')}
+                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-white border border-[#27272A] transition-colors shrink-0"
+                  title="Copy phone to clipboard"
                 >
-                  {copiedPhone ? (
-                    <Check size={16} className="text-emerald-400" />
-                  ) : (
-                    <Copy size={16} />
-                  )}
+                  {copiedPhone ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
                 </button>
               </div>
 
-              {/* Social Channels */}
-              <div className="space-y-2.5">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA] block">
-                  Professional Profiles:
+              {/* Social Profiles Grid */}
+              <div className="pt-2 border-t border-[#27272A]">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] block mb-3">
+                  Professional Channels:
                 </span>
-
-                {/* LinkedIn */}
-                <a
-                  href={personalInfo.socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-cyan-500/40 hover:bg-[#121820] transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-                      <Linkedin size={16} />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#F4F4F5] group-hover:text-cyan-300 transition-colors">
-                        LinkedIn
-                      </h4>
-                      <p className="text-[11px] text-[#A1A1AA]">
-                        Connect & view recommendations
-                      </p>
-                    </div>
-                  </div>
-                  <ExternalLink size={14} className="text-[#A1A1AA] group-hover:text-cyan-400 transition-colors" />
-                </a>
-
-                {/* GitHub */}
-                <a
-                  href={personalInfo.socialLinks.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-purple-500/40 hover:bg-[#161220] transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                      <Github size={16} />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#F4F4F5] group-hover:text-purple-300 transition-colors">
-                        GitHub
-                      </h4>
-                      <p className="text-[11px] text-[#A1A1AA]">
-                        Explore open-source code & commits
-                      </p>
-                    </div>
-                  </div>
-                  <ExternalLink size={14} className="text-[#A1A1AA] group-hover:text-purple-400 transition-colors" />
-                </a>
-              </div>
-
-              {/* Resume download / preview button in contact */}
-              <div className="pt-4 border-t border-[#27272A] space-y-2">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA] block">
-                  Curriculum Vitae:
-                </span>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   <a
-                    href={personalInfo.resume.downloadUrl}
-                    download={personalInfo.resume.fileName}
-                    className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-[#09090B] hover:bg-[#202025] text-xs font-medium text-[#F4F4F5] border border-[#27272A] hover:border-purple-500/40 transition-colors"
+                    href={personalInfo.socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-cyan-500/40 text-xs font-mono text-[#D4D4D8] flex items-center gap-2 transition-all group"
                   >
-                    <FileDown size={14} className="text-purple-400" />
-                    <span>Download PDF</span>
+                    <Linkedin size={16} className="text-cyan-400 group-hover:scale-110 transition-transform" />
+                    <span>LinkedIn</span>
                   </a>
-                  <button
-                    onClick={onOpenResume}
-                    className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-[#09090B] hover:bg-[#202025] text-xs font-medium text-[#F4F4F5] border border-[#27272A] hover:border-cyan-500/40 transition-colors"
+
+                  <a
+                    href={personalInfo.socialLinks.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-[#09090B] border border-[#27272A] hover:border-purple-500/40 text-xs font-mono text-[#D4D4D8] flex items-center gap-2 transition-all group"
                   >
-                    <ExternalLink size={14} className="text-cyan-400" />
-                    <span>Preview Online</span>
-                  </button>
+                    <Github size={16} className="text-purple-400 group-hover:scale-110 transition-transform" />
+                    <span>GitHub</span>
+                  </a>
                 </div>
               </div>
 
-            </div>
-
-            {/* Availability reminder badge */}
-            <div className="p-4 rounded-xl bg-[#18181B] border border-emerald-500/30 flex items-center gap-3">
-              <span className="relative flex h-3 w-3 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </span>
-              <p className="text-xs text-[#D4D4D8]">
-                Currently open for <span className="text-emerald-400 font-semibold">Summer / Fall 2025–2026 Internships</span> and collaborative projects.
-              </p>
+              {/* Download Resume Link */}
+              <div className="pt-2 border-t border-[#27272A]">
+                <a
+                  href={personalInfo.resume.downloadUrl}
+                  download={personalInfo.resume.fileName}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#09090B] hover:bg-[#202025] border border-[#27272A] text-xs font-mono text-[#D4D4D8] transition-colors"
+                >
+                  <FileDown size={15} className="text-purple-400" />
+                  <span>Download Latest Resume (PDF)</span>
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Right Column: Functional Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 sm:p-8 shadow-xl relative">
-              <h3 className="text-xl font-bold text-[#F4F4F5] mb-2 flex items-center gap-2">
-                <MessageSquare size={18} className="text-purple-400" />
-                <span>Send a Message</span>
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#18181B] border border-[#27272A]">
+              <h3 className="text-xl font-heading font-bold text-white mb-2">
+                Send a Message
               </h3>
-              <p className="text-xs text-[#A1A1AA] mb-6">
-                Fill out the details below. All fields include validation and support direct communication.
+              <p className="text-xs text-[#A1A1AA] mb-6 font-sans">
+                Fill in the details below and I'll respond as soon as possible.
               </p>
 
-              {/* Status Alert Banner */}
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/40 flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-emerald-400 shrink-0 mt-0.5" />
-                  <div className="text-xs sm:text-sm text-emerald-200">
-                    <p className="font-semibold mb-0.5">Message Transmitted!</p>
-                    <p>{statusMessage}</p>
-                  </div>
+                <div className="mb-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/40 flex items-start gap-3 text-xs text-emerald-300">
+                  <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+                  <span>{statusMessage}</span>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 rounded-xl bg-rose-950/40 border border-rose-800/40 flex items-start gap-3">
-                  <AlertCircle size={18} className="text-rose-400 shrink-0 mt-0.5" />
-                  <div className="text-xs sm:text-sm text-rose-200">
-                    <p className="font-semibold mb-0.5">Direct Email Backup Available</p>
-                    <p className="mb-2">{statusMessage}</p>
-                    <a
-                      href={mailtoLink}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-600 hover:bg-rose-500 text-white rounded-lg text-xs font-medium transition-colors"
-                    >
-                      <Mail size={12} />
-                      <span>Open Pre-filled Email</span>
-                    </a>
-                  </div>
+                <div className="mb-6 p-4 rounded-xl bg-rose-950/40 border border-rose-800/40 flex items-start gap-3 text-xs text-rose-300">
+                  <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                  <span>{statusMessage}</span>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Name */}
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-xs font-mono uppercase tracking-wider text-[#A1A1AA] mb-1.5"
-                    >
-                      Your Name <span className="text-rose-400">*</span>
+                  {/* Name Field */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-name" className="text-xs font-mono text-[#D4D4D8]">
+                      Your Name <span className="text-purple-400">*</span>
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
-                      id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Alex Morgan"
-                      className={`w-full px-4 py-3 rounded-xl bg-[#09090B] text-sm text-[#F4F4F5] border focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-2.5 rounded-xl bg-[#09090B] border text-xs text-white placeholder-[#71717A] focus:outline-none focus:ring-1 transition-all ${
                         errors.name
-                          ? 'border-rose-500 focus:border-rose-400'
-                          : 'border-[#27272A] focus:border-purple-500'
+                          ? 'border-rose-500 focus:ring-rose-500'
+                          : 'border-[#27272A] focus:border-purple-500 focus:ring-purple-500'
                       }`}
                     />
                     {errors.name && (
-                      <p className="text-[11px] text-rose-400 mt-1">{errors.name}</p>
+                      <p className="text-[11px] font-mono text-rose-400">{errors.name}</p>
                     )}
                   </div>
 
-                  {/* Email */}
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-xs font-mono uppercase tracking-wider text-[#A1A1AA] mb-1.5"
-                    >
-                      Your Email <span className="text-rose-400">*</span>
+                  {/* Email Field */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-email" className="text-xs font-mono text-[#D4D4D8]">
+                      Your Email <span className="text-purple-400">*</span>
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
-                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="alex@company.com"
-                      className={`w-full px-4 py-3 rounded-xl bg-[#09090B] text-sm text-[#F4F4F5] border focus:outline-none transition-colors ${
+                      placeholder="e.g. alex@example.com"
+                      className={`w-full px-4 py-2.5 rounded-xl bg-[#09090B] border text-xs text-white placeholder-[#71717A] focus:outline-none focus:ring-1 transition-all ${
                         errors.email
-                          ? 'border-rose-500 focus:border-rose-400'
-                          : 'border-[#27272A] focus:border-purple-500'
+                          ? 'border-rose-500 focus:ring-rose-500'
+                          : 'border-[#27272A] focus:border-purple-500 focus:ring-purple-500'
                       }`}
                     />
                     {errors.email && (
-                      <p className="text-[11px] text-rose-400 mt-1">{errors.email}</p>
+                      <p className="text-[11px] font-mono text-rose-400">{errors.email}</p>
                     )}
                   </div>
                 </div>
 
-                {/* Subject */}
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-xs font-mono uppercase tracking-wider text-[#A1A1AA] mb-1.5"
-                  >
-                    Subject <span className="text-rose-400">*</span>
+                {/* Subject Field */}
+                <div className="space-y-1.5">
+                  <label htmlFor="contact-subject" className="text-xs font-mono text-[#D4D4D8]">
+                    Subject <span className="text-purple-400">*</span>
                   </label>
                   <input
+                    id="contact-subject"
                     type="text"
-                    id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Software Engineering Opportunity / Project Discussion"
-                    className={`w-full px-4 py-3 rounded-xl bg-[#09090B] text-sm text-[#F4F4F5] border focus:outline-none transition-colors ${
+                    placeholder="e.g. Graduate Software Engineer Role Inquiry"
+                    className={`w-full px-4 py-2.5 rounded-xl bg-[#09090B] border text-xs text-white placeholder-[#71717A] focus:outline-none focus:ring-1 transition-all ${
                       errors.subject
-                        ? 'border-rose-500 focus:border-rose-400'
-                        : 'border-[#27272A] focus:border-purple-500'
+                        ? 'border-rose-500 focus:ring-rose-500'
+                        : 'border-[#27272A] focus:border-purple-500 focus:ring-purple-500'
                     }`}
                   />
                   {errors.subject && (
-                    <p className="text-[11px] text-rose-400 mt-1">{errors.subject}</p>
+                    <p className="text-[11px] font-mono text-rose-400">{errors.subject}</p>
                   )}
                 </div>
 
-                {/* Message */}
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-xs font-mono uppercase tracking-wider text-[#A1A1AA] mb-1.5"
-                  >
-                    Message <span className="text-rose-400">*</span>
+                {/* Message Field */}
+                <div className="space-y-1.5">
+                  <label htmlFor="contact-message" className="text-xs font-mono text-[#D4D4D8]">
+                    Message <span className="text-purple-400">*</span>
                   </label>
                   <textarea
-                    id="message"
+                    id="contact-message"
                     name="message"
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Write your note or opportunity details here..."
-                    className={`w-full px-4 py-3 rounded-xl bg-[#09090B] text-sm text-[#F4F4F5] border focus:outline-none transition-colors resize-none ${
+                    placeholder="Tell me about your project, team opportunity, or idea..."
+                    className={`w-full px-4 py-2.5 rounded-xl bg-[#09090B] border text-xs text-white placeholder-[#71717A] focus:outline-none focus:ring-1 transition-all resize-none ${
                       errors.message
-                        ? 'border-rose-500 focus:border-rose-400'
-                        : 'border-[#27272A] focus:border-purple-500'
+                        ? 'border-rose-500 focus:ring-rose-500'
+                        : 'border-[#27272A] focus:border-purple-500 focus:ring-purple-500'
                     }`}
                   />
                   {errors.message && (
-                    <p className="text-[11px] text-rose-400 mt-1">{errors.message}</p>
+                    <p className="text-[11px] font-mono text-rose-400">{errors.message}</p>
                   )}
                 </div>
 
-                {/* Submit button & Mailto fallback */}
-                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-sm font-medium text-white shadow-lg shadow-purple-600/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Transmitting...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send size={15} />
-                        <span>Send Message</span>
-                      </>
-                    )}
-                  </button>
-
-                  <a
-                    href={mailtoLink}
-                    className="text-xs text-[#A1A1AA] hover:text-purple-300 font-mono transition-colors flex items-center gap-1"
-                  >
-                    <span>Or send via email client</span>
-                    <ExternalLink size={12} />
-                  </a>
-                </div>
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white font-heading font-medium text-xs shadow-md shadow-purple-600/20 transition-all cursor-pointer"
+                >
+                  <Send size={14} className={isSubmitting ? 'animate-pulse' : ''} />
+                  <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
+                </button>
               </form>
             </div>
           </div>

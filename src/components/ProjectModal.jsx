@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   X,
   Github,
@@ -7,12 +8,14 @@ import {
   Clock,
   Layers,
   Sparkles,
-  AlertCircle,
+  ArrowRight,
   Code2,
 } from 'lucide-react';
 import ProjectMockupVisual from './ProjectMockupVisual';
 
 export default function ProjectModal({ project, onClose }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -27,6 +30,14 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose]);
 
   if (!project) return null;
+
+  const features = project.showcaseFeatures || project.features || [];
+  const projectSlug = project.slug || project.id;
+
+  const handleOpenCaseStudy = () => {
+    onClose();
+    navigate(`/projects/${projectSlug}`);
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-md animate-fade-in">
@@ -62,7 +73,7 @@ export default function ProjectModal({ project, onClose }) {
                 </span>
               )}
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#F4F4F5]">
+            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-[#F4F4F5]">
               {project.title}
             </h3>
             <p className="text-sm font-medium text-purple-300/80 mt-1">
@@ -71,7 +82,7 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Description */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#A1A1AA]">
               Project Overview
             </h4>
@@ -97,46 +108,14 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* Features breakdown: Handle GramShiksha AI's distinct implemented vs planned features */}
-          {project.implementedFeatures ? (
-            <div className="space-y-5">
-              <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
-                  <CheckCircle2 size={14} />
-                  <span>Currently Implemented Capabilities</span>
-                </h4>
-                <div className="space-y-2 bg-[#09090B] p-4 rounded-xl border border-emerald-900/30">
-                  {project.implementedFeatures.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#D4D4D8]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400 mb-2 flex items-center gap-1.5">
-                  <Clock size={14} />
-                  <span>Planned Roadmap & Next Phases</span>
-                </h4>
-                <div className="space-y-2 bg-[#09090B] p-4 rounded-xl border border-amber-900/30">
-                  {project.plannedFeatures.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#A1A1AA]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
+          {/* Features breakdown */}
+          {features.length > 0 && (
             <div>
               <h4 className="text-xs font-mono uppercase tracking-wider text-[#A1A1AA] mb-3">
                 Key Features & Capabilities
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 bg-[#09090B] p-4 rounded-xl border border-[#27272A]">
-                {project.features.map((feature, idx) => (
+                {features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
                     <CheckCircle2 size={14} className="text-purple-400 shrink-0 mt-0.5" />
                     <span>{feature}</span>
@@ -147,14 +126,14 @@ export default function ProjectModal({ project, onClose }) {
           )}
 
           {/* Architecture Highlights */}
-          {project.architectureHighlights && (
+          {project.technicalHighlights && (
             <div>
               <h4 className="text-xs font-mono uppercase tracking-wider text-[#A1A1AA] mb-3 flex items-center gap-1.5">
                 <Layers size={14} className="text-cyan-400" />
-                <span>Architecture & Engineering Highlights</span>
+                <span>Technical Highlights</span>
               </h4>
               <div className="space-y-2 bg-[#09090B] p-4 rounded-xl border border-[#27272A]">
-                {project.architectureHighlights.map((arch, idx) => (
+                {project.technicalHighlights.map((arch, idx) => (
                   <div key={idx} className="flex items-start gap-2 text-xs text-[#A1A1AA]">
                     <span className="text-cyan-400 font-mono">▸</span>
                     <span>{arch}</span>
@@ -167,9 +146,13 @@ export default function ProjectModal({ project, onClose }) {
 
         {/* Modal Footer with Actions */}
         <div className="p-4 sm:p-6 bg-[#09090B] border-t border-[#27272A] flex flex-wrap items-center justify-between gap-4">
-          <div className="text-xs font-mono text-[#A1A1AA]">
-            Editable links in <span className="text-purple-400">portfolioData.js</span>
-          </div>
+          <button
+            onClick={handleOpenCaseStudy}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-xs font-medium text-white transition-colors"
+          >
+            <span>Read Complete Case Study</span>
+            <ArrowRight size={14} />
+          </button>
 
           <div className="flex items-center gap-3">
             {project.githubUrl && (
@@ -180,29 +163,20 @@ export default function ProjectModal({ project, onClose }) {
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-xs font-medium text-[#F4F4F5] border border-[#27272A] transition-colors"
               >
                 <Github size={14} />
-                <span>GitHub Repository</span>
+                <span>GitHub</span>
               </a>
             )}
 
-            {project.liveUrl ? (
+            {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-xs font-medium text-white shadow-md shadow-purple-600/30 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] border border-cyan-500/40 text-xs font-medium text-cyan-300 transition-colors"
               >
                 <ExternalLink size={14} />
                 <span>Live Demo</span>
               </a>
-            ) : (
-              <button
-                disabled
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#18181B]/60 text-xs font-medium text-[#71717A] border border-[#27272A] cursor-not-allowed"
-                title="Live deployment URL will be linked here once publicly hosted"
-              >
-                <ExternalLink size={14} />
-                <span>Live Demo (Pending Host)</span>
-              </button>
             )}
           </div>
         </div>

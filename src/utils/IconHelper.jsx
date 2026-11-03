@@ -82,3 +82,13 @@ export const DynamicIcon = ({ name, size = 18, className = "", color, ...props }
   const IconComponent = iconMap[name] || Code;
   return <IconComponent size={size} className={className} color={color} {...props} />;
 };
+
+/**
+ * Helper to render icon by string name
+ */
+export const renderIcon = (name, size = 18, className = "", color, props = {}) => {
+  const IconComponent = iconMap[name] || Code;
+  return <IconComponent size={size} className={className} color={color} {...props} />;
+};
+
+export default DynamicIcon;

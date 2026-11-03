@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         background: '#09090B',
+        backgroundAlt: '#111116',
         card: '#18181B',
         cardHover: '#202025',
         border: '#27272A',
@@ -33,6 +34,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
       },
       animation: {
