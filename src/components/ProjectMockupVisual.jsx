@@ -13,6 +13,7 @@ import {
   Database,
   ShieldCheck,
   TableProperties,
+  Compass,
 } from 'lucide-react';
 
 export default function ProjectMockupVisual({ projectId }) {
@@ -26,12 +27,12 @@ export default function ProjectMockupVisual({ projectId }) {
         <div className="flex items-center justify-between z-10">
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] font-mono text-emerald-400">
-              Live Queue Tracking • MERN Stack
+            <span className="text-[11px] font-mono text-cyan-400">
+              Live Queue Tracking • Ably WebSockets
             </span>
           </div>
           <span className="text-[10px] font-mono text-[#A1A1AA] bg-[#18181B] px-2 py-0.5 rounded border border-[#27272A]">
-            Campus Dining & Services
+            Clerk Auth • ImageKit CDN
           </span>
         </div>
 
@@ -44,7 +45,7 @@ export default function ProjectMockupVisual({ projectId }) {
             <div className="text-2xl font-mono font-bold text-[#F4F4F5] flex items-center gap-2">
               <span>#PU-108</span>
               <span className="text-[11px] font-sans font-normal text-cyan-300 bg-cyan-500/20 px-2 py-0.5 rounded-full">
-                Live Status
+                Real-time
               </span>
             </div>
           </div>
@@ -62,9 +63,9 @@ export default function ProjectMockupVisual({ projectId }) {
 
         {/* Bottom stats */}
         <div className="grid grid-cols-3 gap-2 z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
-          <div>Module: <span className="text-[#F4F4F5]">Student & Vendor</span></div>
-          <div className="text-center">Stack: <span className="text-purple-300">Express + React</span></div>
-          <div className="text-right">DB: <span className="text-emerald-400">MongoDB</span></div>
+          <div>Stack: <span className="text-[#F4F4F5]">React + Express</span></div>
+          <div className="text-center">ORM: <span className="text-purple-300">Prisma</span></div>
+          <div className="text-right">DB: <span className="text-emerald-400">Neon PostgreSQL</span></div>
         </div>
       </div>
     );
@@ -78,31 +79,34 @@ export default function ProjectMockupVisual({ projectId }) {
         <div className="flex items-center justify-between z-10">
           <div className="text-[11px] font-mono text-purple-300 flex items-center gap-1.5">
             <Sparkles size={13} className="text-purple-400" />
-            <span>Google Gemini AI API • JSON Schema</span>
+            <span>Google Gemini 2.5 Flash • 12 Industry Sectors</span>
           </div>
-          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-800/40 px-2 py-0.5 rounded">
-            Target: Graduate SDE
+          <span className="text-[10px] font-mono text-purple-400 bg-purple-950/60 border border-purple-800/40 px-2 py-0.5 rounded">
+            RIASEC Assessment
           </span>
         </div>
 
-        {/* Readiness Meter Card */}
+        {/* Career Discovery & Roadmap Card */}
         <div className="z-10 bg-[#18181B] border border-[#27272A] rounded-xl p-3 space-y-2">
           <div className="flex justify-between items-center text-xs">
-            <span className="text-[#A1A1AA]">Skill-Gap Analysis & Match</span>
-            <span className="font-mono font-bold text-purple-400">92% Ready</span>
+            <span className="text-[#A1A1AA] flex items-center gap-1.5">
+              <Compass size={13} className="text-cyan-400" />
+              <span>Aptitude Assessment & Skill-Gap</span>
+            </span>
+            <span className="font-mono font-bold text-cyan-400">Structured JSON</span>
           </div>
           <div className="w-full bg-[#09090B] rounded-full h-2 overflow-hidden border border-[#27272A]">
-            <div className="bg-gradient-to-r from-purple-500 to-cyan-400 h-full rounded-full" style={{ width: '92%' }} />
+            <div className="bg-gradient-to-r from-purple-500 via-cyan-400 to-emerald-400 h-full rounded-full" style={{ width: '94%' }} />
           </div>
           <div className="flex justify-between text-[10px] font-mono text-[#A1A1AA] pt-0.5">
-            <span>DSA & Backend: Strong</span>
-            <span className="text-cyan-400">Personalized Roadmap Active</span>
+            <span>Stream & College Discovery</span>
+            <span className="text-purple-300">AI Mock Interview Feedback</span>
           </div>
         </div>
 
         <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
-          <span>AI Mentor Chatbot</span>
-          <span className="text-purple-300">LocalStorage Persistent State</span>
+          <span>Node/Express AI Gateway</span>
+          <span className="text-cyan-400">Supabase Sync + LocalStorage</span>
         </div>
       </div>
     );

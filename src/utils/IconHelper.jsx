@@ -31,6 +31,10 @@ import {
   Award,
   CheckCircle2,
   BookOpen,
+  Cloud,
+  Lock,
+  Radio,
+  Image,
 } from 'lucide-react';
 
 const iconMap = {
@@ -65,6 +69,10 @@ const iconMap = {
   Award,
   CheckCircle2,
   BookOpen,
+  Cloud,
+  Lock,
+  Radio,
+  Image,
 };
 
 /**

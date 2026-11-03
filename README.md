@@ -23,10 +23,10 @@
 - **Theme & Aesthetic**: Premium dark-mode design (`#09090B` background, `#18181B` card containers, `#8B5CF6` primary violet, and `#06B6D4` secondary cyan accents).
 - **Hero Section**: Dynamic headline, customizable availability badge (*"Seeking Graduate Software Engineer Role"*), animated entrance with Framer Motion, instant resume download, in-browser CV preview, and an interactive developer config visual (`developer.config.json`).
 - **About Me**: Verbatim academic narrative, core engineering philosophy (*Practical Engineering*, *AI Integration*, *Solid Foundations*), and structured areas of interest.
-- **Technical Skills Matrix**: Organized into clean visual categories (Languages, AI & Generative AI, Backend, Web Technologies, Databases, Core CS, and Workflow Tools) with contextual micro-tags—**no arbitrary percentage meters**.
+- **Technical Skills Matrix**: Organized into clean visual categories (Programming Languages: C++, Java, Python, JavaScript; Core Concepts: DSA, OOP, DBMS, SQL, OS; Frontend; Backend; Databases; AI & Generative AI; Platforms & Integrations: Supabase, Neon DB, Prisma, Clerk, Ably, ImageKit; and Tools) with contextual micro-tags—**no arbitrary percentage meters**.
 - **Featured Projects**:
-  - **GetCareerPilot (2026)**: AI-Powered Career Guidance Platform using Google Gemini API, JSON schema, personalized roadmaps, and LocalStorage state.
-  - **Skipline (2025–Present)**: Smart University Queue Management System using MERN Stack, digital tokens, and real-time queue tracking.
+  - **GetCareerPilot (2026)**: AI-Powered Career Discovery Platform utilizing Google Gemini 2.5 Flash across 12 industry sectors, RIASEC aptitude assessment, career exploration, entrance exam & scholarship guidance, AI roadmaps, resume skill-gap analysis, mock interview evaluation with structured JSON responses, Node.js/Express gateway, and Supabase PostgreSQL with LocalStorage offline fallback.
+  - **SkipLine (2025–Present)**: Smart University Queue Management System built with React.js, Node.js, Express.js, PostgreSQL (Neon DB), Prisma ORM, Clerk authentication, Ably real-time messaging, ImageKit cloud storage, digital tokens, and live queue tracking.
   - **Student Management System (2024)**: Academic CRUD database application with role-based access control and normalized SQL queries.
   - **CollabMind**: Real-time collaborative workspace with Socket.IO & Gemini AI sprint task breakdown.
   - **GramShiksha AI**: Offline-first educational PWA for rural learners with clear implemented vs. roadmap separation.
