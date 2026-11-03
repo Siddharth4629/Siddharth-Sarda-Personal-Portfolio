@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/Siddharth4629"><img src="https://img.shields.io/badge/GitHub-Siddharth4629-8B5CF6?style=flat-square&logo=github" alt="GitHub" /></a>
-  <a href="https://linkedin.com/in/siddharth-sarda"><img src="https://img.shields.io/badge/LinkedIn-siddharth--sarda-06B6D4?style=flat-square&logo=linkedin" alt="LinkedIn" /></a>
+  <a href="https://www.linkedin.com/in/siddharth-sarda-5090a1358/"><img src="https://img.shields.io/badge/LinkedIn-siddharth--sarda-06B6D4?style=flat-square&logo=linkedin" alt="LinkedIn" /></a>
   <a href="mailto:siddharthsarda742@gmail.com"><img src="https://img.shields.io/badge/Email-siddharthsarda742%40gmail.com-10B981?style=flat-square&logo=gmail" alt="Email" /></a>
   <a href="tel:+918788668577"><img src="https://img.shields.io/badge/Phone-%2B91--8788668577-F59E0B?style=flat-square" alt="Phone" /></a>
 </p>
@@ -124,7 +124,7 @@ export const personalInfo = {
   },
   socialLinks: {
     github: "https://github.com/Siddharth4629",
-    linkedin: "https://linkedin.com/in/siddharth-sarda",
+    linkedin: "https://www.linkedin.com/in/siddharth-sarda-5090a1358/",
     email: "siddharthsarda742@gmail.com",
     phone: "+91-8788668577",
   },

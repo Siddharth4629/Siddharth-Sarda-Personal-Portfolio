@@ -49,7 +49,7 @@ export const personalInfo = {
   },
   socialLinks: {
     github: "https://github.com/Siddharth4629",
-    linkedin: "https://linkedin.com/in/siddharth-sarda",
+    linkedin: "https://www.linkedin.com/in/siddharth-sarda-5090a1358/",
     email: "siddharthsarda742@gmail.com",
     phone: "+91-8788668577",
   },

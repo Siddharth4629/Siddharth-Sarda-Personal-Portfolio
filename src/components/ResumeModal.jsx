@@ -170,7 +170,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                   className="flex items-center gap-1 text-cyan-400 hover:underline"
                 >
                   <Linkedin size={12} />
-                  <span>linkedin.com/in/siddharth-sarda</span>
+                  <span>linkedin.com/in/siddharth-sarda-5090a1358</span>
                 </a>
                 <span>•</span>
                 <a
