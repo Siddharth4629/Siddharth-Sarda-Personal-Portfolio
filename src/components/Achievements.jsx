@@ -11,18 +11,41 @@ import {
   CheckCircle2,
   Code2,
   Check,
+  Eye,
+  Filter,
 } from 'lucide-react';
 import { achievementsData } from '../data/portfolioData';
+import CertificateModal from './CertificateModal';
 
 export default function Achievements() {
-  const [activeTab, setActiveTab] = useState('achievements');
+  const [activeTab, setActiveTab] = useState('certifications');
+  const [certFilter, setCertFilter] = useState('All');
+  const [selectedCert, setSelectedCert] = useState(null);
 
   const tabs = [
+    { id: 'certifications', label: 'All Certifications', icon: Award, count: achievementsData.certifications.length },
     { id: 'achievements', label: 'Achievements', icon: Trophy, count: achievementsData.achievementsList.length },
-    { id: 'certifications', label: 'Certifications', icon: Award, count: achievementsData.certifications.length },
     { id: 'training', label: 'Technical Training', icon: BookOpen, count: achievementsData.technicalTraining.length },
-    { id: 'experience', label: 'Work Experience', icon: Briefcase, count: 1 },
+    { id: 'experience', label: 'Graduate Readiness', icon: Briefcase, count: 1 },
   ];
+
+  const certCategories = [
+    'All',
+    'AI & Machine Learning',
+    'Cloud Computing',
+    'Data Science',
+    'Core Computer Science',
+    'Full-Stack Web Development',
+    'Hackathons',
+    'Productivity Tools',
+  ];
+
+  const filteredCerts =
+    certFilter === 'All'
+      ? achievementsData.certifications
+      : achievementsData.certifications.filter((c) =>
+          c.category.toLowerCase().includes(certFilter.toLowerCase())
+        );
 
   return (
     <section id="achievements" className="py-24 relative bg-[#09090B] overflow-hidden">
@@ -35,19 +58,19 @@ export default function Achievements() {
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-800/40 text-purple-300 text-xs font-mono mb-3">
             <Sparkles size={12} />
-            <span>CREDENTIALS & TRACK RECORD</span>
+            <span>AUTHENTIC CREDENTIALS & TRACK RECORD</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F4F4F5]">
             Certifications & <span className="gradient-text-purple">Achievements</span>
           </h2>
           <p className="mt-3 text-base text-[#A1A1AA] max-w-2xl">
-            Verified certifications from AWS, Cisco, IBM, and ISRO/Hack2Skill, alongside competitive problem-solving and software milestones.
+            17 verified credentials from AWS, Cisco, IBM, Great Learning, and ISRO/Hack2Skill, alongside competitive problem-solving milestones.
           </p>
           <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mt-4" />
         </div>
 
         {/* Tab navigation */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -76,9 +99,105 @@ export default function Achievements() {
         </div>
 
         {/* Tab Content Panels */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           
-          {/* 1. Achievements Tab */}
+          {/* 1. All Certifications Tab */}
+          {activeTab === 'certifications' && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-6"
+            >
+              {/* Category sub-filters */}
+              <div className="flex flex-wrap items-center justify-center gap-1.5 pb-2">
+                {certCategories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setCertFilter(cat)}
+                    className={`text-[11px] font-mono px-3 py-1.5 rounded-lg transition-colors ${
+                      certFilter === cat
+                        ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm'
+                        : 'bg-[#18181B] text-[#A1A1AA] hover:text-[#F4F4F5] border border-[#27272A]'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              {/* Grid of certificates */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredCerts.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="bg-[#18181B] border border-[#27272A] rounded-2xl p-5 hover:border-purple-500/40 transition-all duration-300 shadow-xl group flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* Card Header */}
+                      <div className="flex items-start justify-between gap-2 mb-3">
+                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                          {cert.badge}
+                        </span>
+                        <span className="text-[11px] font-mono text-[#A1A1AA] bg-[#09090B] px-2 py-0.5 rounded border border-[#27272A]">
+                          {cert.date || cert.year}
+                        </span>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-base font-bold text-[#F4F4F5] group-hover:text-purple-300 transition-colors leading-snug">
+                        {cert.title}
+                      </h3>
+
+                      {/* Issuer & Course Hours */}
+                      <p className="text-xs font-mono text-cyan-400 mt-1">
+                        {cert.issuer} {cert.courseHours && `• ${cert.courseHours}`}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-xs text-[#A1A1AA] leading-relaxed mt-2.5">
+                        {cert.description}
+                      </p>
+
+                      {/* Credential ID if present */}
+                      {cert.credentialId && (
+                        <div className="mt-2 text-[10px] font-mono text-[#71717A]">
+                          ID: <span className="text-[#D4D4D8]">{cert.credentialId}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Actions */}
+                    <div className="mt-4 pt-3 border-t border-[#27272A] flex items-center justify-between gap-2">
+                      <button
+                        onClick={() => setSelectedCert(cert)}
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-purple-400 hover:text-purple-300 transition-colors"
+                      >
+                        <Eye size={13} />
+                        <span>View Document</span>
+                      </button>
+
+                      <div className="flex items-center gap-2">
+                        {cert.verifyUrl && (
+                          <a
+                            href={cert.verifyUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 hover:text-cyan-300 transition-colors"
+                          >
+                            <span>Verify Online</span>
+                            <ExternalLink size={11} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* 2. Achievements Tab */}
           {activeTab === 'achievements' && (
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -114,47 +233,6 @@ export default function Achievements() {
                     <CheckCircle2 size={13} />
                     <span>Verified Milestone</span>
                   </div>
-                </div>
-              ))}
-            </motion.div>
-          )}
-
-          {/* 2. Certifications Tab */}
-          {activeTab === 'certifications' && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-4"
-            >
-              {achievementsData.certifications.map((cert, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 hover:border-purple-500/40 transition-all shadow-xl group"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
-                        <Award size={18} />
-                      </div>
-                      <div>
-                        <h3 className="text-base font-bold text-[#F4F4F5] group-hover:text-purple-300 transition-colors">
-                          {cert.title}
-                        </h3>
-                        <p className="text-xs font-mono text-cyan-400">
-                          {cert.issuer} • {cert.year}
-                        </p>
-                      </div>
-                    </div>
-
-                    <span className="text-xs font-mono text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded border border-purple-500/20 self-start sm:self-auto">
-                      {cert.badge}
-                    </span>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-2 pl-12">
-                    {cert.description}
-                  </p>
                 </div>
               ))}
             </motion.div>
@@ -250,6 +328,14 @@ export default function Achievements() {
 
         </div>
       </div>
+
+      {/* Certificate Preview Modal */}
+      {selectedCert && (
+        <CertificateModal
+          certificate={selectedCert}
+          onClose={() => setSelectedCert(null)}
+        />
+      )}
     </section>
   );
 }
