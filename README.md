@@ -35,7 +35,7 @@ A modern, recruiter-focused personal portfolio engineered for **Siddharth Sarda*
   1. **GetCareerPilot (Flagship Project)**: AI-Powered Career Discovery Platform utilizing **Google Gemini 2.5 Flash** across 12 industry sectors, RIASEC aptitude assessment, career exploration, college discovery, entrance exam & scholarship guidance, personalized weekly roadmaps, resume skill-gap analysis, mock interview evaluation with structured JSON responses, Node.js/Express gateway, and Supabase PostgreSQL with LocalStorage offline fallback.
   2. **SkipLine (Full Stack Development)**: Smart University Queue Management System engineered with **React.js, Node.js, Express.js, PostgreSQL (Neon DB), Prisma ORM, Clerk authentication, Ably real-time WebSockets**, and ImageKit cloud storage for digital tokens and live queue throughput.
   3. **Student Management System (Academic Project)**: Academic CRUD database application with 3NF relational normalization in MySQL, role-based access control (Admin, Faculty, Student), and index-tuned SQL queries.
-  - **Additional Exploratory Projects**: Dedicated expandable drawer featuring **CollabMind** (React 18, Vite, Socket.IO, Gemini API, MongoDB) and **GramShiksha AI** (Offline-first PWA, IndexedDB).
+  - **Additional Exploratory Projects**: Dedicated expandable drawer featuring **CollabMind** (React 18, Vite, Socket.IO, Gemini API, MongoDB).
 - **Live Active EmailJS Gateway**:
   - Pre-configured with active Service ID (`service_9xluspg`), Template ID (`template_q23codh`), and Public Key (`9chjyW5jdRDHGcviX`).
   - Form validation, dynamic dispatch state, celebration confetti (`canvas-confetti`), and direct one-click `mailto:` fallback.

@@ -283,7 +283,7 @@ export default function Projects({ onSelectProject }) {
             <span>
               {showAdditional
                 ? "Hide Additional Projects"
-                : "Explore Additional & Exploratory Projects (CollabMind, GramShiksha AI)"}
+                : "Explore Additional Project (CollabMind)"}
             </span>
             {showAdditional ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>

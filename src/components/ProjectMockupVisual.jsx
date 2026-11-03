@@ -153,86 +153,48 @@ export default function ProjectMockupVisual({ projectId }) {
     );
   }
 
-  if (projectId === 'collabmind') {
-    return (
-      <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#0F141C] to-[#0A0D12] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full pointer-events-none" />
-
-        <div className="flex items-center justify-between z-10">
-          <div className="flex items-center gap-1.5 bg-cyan-950/60 border border-cyan-800/40 text-cyan-300 text-[10px] font-mono px-2 py-0.5 rounded-full">
-            <Sparkles size={10} />
-            <span>Google Gemini AI Engine</span>
-          </div>
-          <div className="flex items-center gap-1 text-[10px] font-mono text-emerald-400">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping" />
-            <span>Socket.IO Active</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-2 z-10">
-          <div className="bg-[#18181B] border border-[#27272A] rounded-lg p-2.5 space-y-1">
-            <div className="text-[9px] font-mono text-purple-400 uppercase">AI Task Breakdown</div>
-            <div className="text-xs font-semibold text-[#F4F4F5] truncate">
-              Design DB Sharding Strategy
-            </div>
-            <div className="flex items-center gap-1 text-[9px] text-[#A1A1AA]">
-              <Users size={10} />
-              <span>Assigned: Siddharth</span>
-            </div>
-          </div>
-
-          <div className="bg-[#18181B] border border-cyan-500/30 rounded-lg p-2.5 space-y-1 bg-cyan-950/10">
-            <div className="text-[9px] font-mono text-cyan-400 uppercase">Sprint Retrospective</div>
-            <div className="text-xs font-semibold text-[#F4F4F5] truncate">
-              Velocity: +24% vs Target
-            </div>
-            <div className="text-[9px] text-emerald-400 font-mono">
-              AI Summary Ready
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
-          <span>React 18 + Vite</span>
-          <span>MongoDB + JWT</span>
-        </div>
-      </div>
-    );
-  }
-
-  // GramShiksha AI
+  // CollabMind & Default Preview
   return (
-    <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#0F1813] to-[#080E0A] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none" />
+    <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#0F141C] to-[#0A0D12] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full pointer-events-none" />
 
       <div className="flex items-center justify-between z-10">
-        <div className="flex items-center gap-1.5 bg-emerald-950/60 border border-emerald-800/40 text-emerald-300 text-[10px] font-mono px-2 py-0.5 rounded-full">
-          <WifiOff size={10} />
-          <span>Offline First PWA</span>
+        <div className="flex items-center gap-1.5 bg-cyan-950/60 border border-cyan-800/40 text-cyan-300 text-[10px] font-mono px-2 py-0.5 rounded-full">
+          <Sparkles size={10} />
+          <span>Google Gemini AI Engine</span>
         </div>
-        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800/30">
-          Rural Education Impact
-        </span>
+        <div className="flex items-center gap-1 text-[10px] font-mono text-emerald-400">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping" />
+          <span>Socket.IO Active</span>
+        </div>
       </div>
 
-      <div className="bg-[#18181B] border border-[#27272A] rounded-xl p-3 z-10 space-y-1.5">
-        <div className="flex justify-between items-center text-xs">
-          <span className="font-semibold text-[#F4F4F5] flex items-center gap-1.5">
-            <Cpu size={12} className="text-emerald-400" />
-            <span>Local STEM Curriculum</span>
-          </span>
-          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
-            Cached 100%
-          </span>
+      <div className="grid grid-cols-2 gap-2 z-10">
+        <div className="bg-[#18181B] border border-[#27272A] rounded-lg p-2.5 space-y-1">
+          <div className="text-[9px] font-mono text-purple-400 uppercase">AI Task Breakdown</div>
+          <div className="text-xs font-semibold text-[#F4F4F5] truncate">
+            Design DB Sharding Strategy
+          </div>
+          <div className="flex items-center gap-1 text-[9px] text-[#A1A1AA]">
+            <Users size={10} />
+            <span>Assigned: Siddharth</span>
+          </div>
         </div>
-        <p className="text-[11px] text-[#A1A1AA]">
-          Interactive science exercises stored in IndexedDB for zero-latency execution without internet.
-        </p>
+
+        <div className="bg-[#18181B] border border-cyan-500/30 rounded-lg p-2.5 space-y-1 bg-cyan-950/10">
+          <div className="text-[9px] font-mono text-cyan-400 uppercase">Sprint Retrospective</div>
+          <div className="text-xs font-semibold text-[#F4F4F5] truncate">
+            Velocity: +24% vs Target
+          </div>
+          <div className="text-[9px] text-emerald-400 font-mono">
+            AI Summary Ready
+          </div>
+        </div>
       </div>
 
       <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
-        <span>Low-Bandwidth UI</span>
-        <span className="text-emerald-400">Multi-lingual Prompt Engine</span>
+        <span>React 18 + Vite</span>
+        <span>MongoDB + JWT</span>
       </div>
     </div>
   );

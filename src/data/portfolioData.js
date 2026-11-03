@@ -191,7 +191,7 @@ export const featuredProjects = [
     ],
     caseStudyUrl: "/projects/getcareerpilot",
     githubUrl: "https://github.com/Siddharth4629/GetCareerPilot",
-    liveUrl: "https://pesonal-portfolio-drab.vercel.app/",
+    liveUrl: "",
     accentColor: "#8B5CF6",
     isPrimaryHero: true,
   },
@@ -306,26 +306,6 @@ export const additionalProjects = [
     githubUrl: "https://github.com/Siddharth4629/collabmind",
     accentColor: "#8B5CF6",
   },
-  {
-    id: "gramshiksha-ai",
-    slug: "gramshiksha-ai",
-    title: "GramShiksha AI",
-    category: "AI for Education",
-    year: "2025",
-    role: "System Architect",
-    badge: "Exploratory Project",
-    shortDescription:
-      "An Offline AI Study Partner designed to support students in rural areas through accessible AI-assisted learning and offline caching.",
-    technologies: [
-      "React",
-      "Tailwind CSS",
-      "PWA / Offline Storage",
-      "JavaScript",
-      "IndexedDB",
-    ],
-    githubUrl: "https://github.com/Siddharth4629/gramshiksha-ai",
-    accentColor: "#10B981",
-  },
 ];
 
 // Compatibility export
@@ -337,7 +317,7 @@ export const educationData = [
     institution: "Parul University",
     location: "Vadodara, Gujarat",
     duration: "2023 – 2027",
-    score: "CGPA: 6.75",
+    score: "In Progress",
     highlight: "Graduating in 2027",
     status: "In Progress",
     description:

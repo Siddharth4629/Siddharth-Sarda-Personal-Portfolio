@@ -94,7 +94,7 @@ export const projectsCaseStudies = {
       "Understanding psychological aptitude frameworks (RIASEC) and their algorithmic translation into software recommendations.",
     ],
     githubUrl: "https://github.com/Siddharth4629/GetCareerPilot",
-    liveUrl: "https://pesonal-portfolio-drab.vercel.app/",
+    liveUrl: "",
     accentColor: "#8B5CF6",
   },
 

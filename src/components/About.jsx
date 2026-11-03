@@ -121,9 +121,9 @@ export default function About() {
                   </div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#09090B] border border-[#27272A]">
-                  <span className="text-[10px] font-mono text-[#A1A1AA] uppercase">Academic CGPA</span>
-                  <div className="text-lg font-heading font-bold text-emerald-400 mt-0.5">
-                    6.75 / 10
+                  <span className="text-[10px] font-mono text-[#A1A1AA] uppercase">Academic Status</span>
+                  <div className="text-lg font-heading font-bold text-cyan-400 mt-0.5">
+                    Undergraduate
                   </div>
                 </div>
               </div>
