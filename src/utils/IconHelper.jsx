@@ -24,6 +24,13 @@ import {
   Box,
   TableProperties,
   Binary,
+  Sparkles,
+  Brain,
+  Compass,
+  Flame,
+  Award,
+  CheckCircle2,
+  BookOpen,
 } from 'lucide-react';
 
 const iconMap = {
@@ -51,6 +58,13 @@ const iconMap = {
   Box,
   TableProperties,
   Binary,
+  Sparkles,
+  Brain,
+  Compass,
+  Flame,
+  Award,
+  CheckCircle2,
+  BookOpen,
 };
 
 /**

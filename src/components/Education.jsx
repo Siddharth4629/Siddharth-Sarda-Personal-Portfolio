@@ -82,9 +82,16 @@ export default function Education() {
                       </h3>
 
                       {/* Institution & Board */}
-                      <div className="mt-1 flex items-center gap-2 text-sm text-cyan-400/90 font-medium">
-                        <School size={15} />
-                        <span>{item.institution}</span>
+                      <div className="mt-1 flex flex-wrap items-center justify-between gap-1 text-sm text-cyan-400/90 font-medium">
+                        <div className="flex items-center gap-2">
+                          <School size={15} />
+                          <span>{item.institution}</span>
+                        </div>
+                        {item.location && (
+                          <span className="text-xs font-mono text-[#A1A1AA]">
+                            {item.location}
+                          </span>
+                        )}
                       </div>
 
                       {item.board && (

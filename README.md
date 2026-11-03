@@ -11,13 +11,17 @@ A responsive personal developer portfolio website for **Siddharth Sarda**, Compu
 - **About Me**: Verbatim academic background narrative, CS principles, and structured areas of interest.
 - **Technical Skills**: Organized into clean visual categories (Languages, Frontend, Backend, Databases, Tools, and Core CS Concepts) with contextual badges—**no fake skill percentages**.
 - **Featured Projects**:
-  - **SkipLine**: Smart Queue and Ordering Platform (Final Year Project).
-  - **CollabMind**: AI-Assisted Project Management powered by Google Gemini API & Socket.IO.
-  - **GetCareerPilot**: AI Career Guidance & Resume Skill-Gap Engine.
-  - **GramShiksha AI**: Offline-first AI Study Partner for rural students, with explicit separation of implemented vs. roadmap features.
-  - Interactive **Project Details Modal** with architecture highlights for deep technical dives.
-- **Education Timeline**: Structured timeline featuring B.Tech CSE (2023–2027), Higher Secondary (83.17%), and Secondary School (83.67%).
-- **Honest Achievements & Milestones**: Categorized tabs for Hackathons (including **Technoverse Hackathon 2026**), Technical Training, Certifications, and active Internship seeking status.
+  - **GetCareerPilot**: AI-Powered Career Guidance Platform using Google Gemini API, JSON schema, personalized roadmaps, and LocalStorage state (2026).
+  - **Skipline**: Smart University Queue Management System using MERN Stack, digital tokens, and real-time queue tracking (2025–Present).
+  - **Student Management System**: Academic CRUD application with role-based access control and optimized SQL queries (2024).
+  - **CollabMind**: Real-time collaborative workspace with Socket.IO & Gemini AI sprint decomposition.
+  - **GramShiksha AI**: Offline-first educational PWA for rural learners.
+- **Education Timeline**: Parul University (B.Tech CSE 2023–2027, Vadodara, Gujarat) and Shroff High School & Junior College (HSC 83.17%, Maharashtra).
+- **Verified Certifications & Achievements**:
+  - Bharatiya Antariksh Hackathon 2025 (ISRO / Hack2Skill).
+  - AI Fundamentals (IBM SkillsBuild), AWS Academy Graduate Cloud Foundations, Cisco Networking Academy Modern AI, Microsoft Azure Essentials.
+  - 100+ Solved Data Structures & Algorithms problems.
+  - Technoverse Hackathon 2026.
 - **Contact Section**: Complete validation, EmailJS integration ready, with graceful fallback, realistic feedback, celebration confetti (`canvas-confetti`), and pre-filled email client (`mailto:`) button.
 - **ATS Resume Preview & Download**: Interactive modal for on-screen CV preview plus direct download of `public/resume.pdf`.
 

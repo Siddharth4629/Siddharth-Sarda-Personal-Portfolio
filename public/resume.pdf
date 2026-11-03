@@ -9,41 +9,67 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 500 >>
+<< /Length 1200 >>
 stream
 BT
-/F1 20 Tf
-50 730 Td
+/F1 18 Tf
+50 740 Td
 (SIDDHARTH SARDA) Tj
-/F1 11 Tf
-0 -20 Td
-(Software Developer | Full Stack Developer | AI Enthusiast) Tj
-0 -16 Td
-(Email: siddharthsarda742@gmail.com | Portfolio: Web Link | GitHub: github.com/Siddharth4629) Tj
-0 -30 Td
-(EDUCATION:) Tj
-0 -16 Td
-(- B.Tech in Computer Science and Engineering (2023 - 2027) | CGPA: 6.75) Tj
-0 -16 Td
-(- Higher Secondary: Shroff High School and Junior College (83.17%)) Tj
-0 -16 Td
-(- Secondary School: Podar International School, CBSE (83.67%)) Tj
-0 -30 Td
-(PROJECTS:) Tj
-0 -16 Td
-(- SkipLine: Smart Queue and Ordering Platform (React, Node, PostgreSQL, Prisma, Ably)) Tj
-0 -16 Td
-(- CollabMind: AI-Assisted Project Management (React, Vite, Node, MongoDB, Gemini API)) Tj
-0 -16 Td
-(- GetCareerPilot: AI Career Guidance & Skill-Gap Platform) Tj
-0 -16 Td
-(- GramShiksha AI: Offline AI Study Partner for Rural Education) Tj
-0 -30 Td
-(SKILLS:) Tj
-0 -16 Td
-(Languages: C++, Java, Python, C, JavaScript | Frontend: React.js, Tailwind CSS) Tj
-0 -16 Td
-(Backend: Node.js, Express.js | Databases: PostgreSQL, MongoDB, MySQL) Tj
+/F1 10 Tf
+0 -18 Td
+(Phone: +91-8788668577 | Email: siddharthsarda742@gmail.com) Tj
+0 -14 Td
+(LinkedIn: linkedin.com/in/siddharth-sarda | GitHub: github.com/Siddharth4629) Tj
+0 -24 Td
+(PROFILE SUMMARY) Tj
+0 -14 Td
+(Computer Science undergraduate with strong foundations in Data Structures, Algorithms,) Tj
+0 -13 Td
+(OOP, DBMS, and software development. Skilled in C++, Python, JavaScript, SQL, REST APIs,) Tj
+0 -13 Td
+(and backend development using Node.js and Express.js. Seeking a Graduate Software Engineer role.) Tj
+0 -22 Td
+(EDUCATION) Tj
+0 -14 Td
+(Parul University, Vadodara, Gujarat - B.Tech in Computer Science Engineering (2023 - 2027)) Tj
+0 -13 Td
+(Shroff High School and Junior College, Maharashtra - Class XII (2023) - Percentage: 83.17%) Tj
+0 -22 Td
+(TECHNICAL SKILLS) Tj
+0 -14 Td
+(Languages: Python, JavaScript, C, C++ | AI: Generative AI, LLMs, Gemini API, Prompt Eng.) Tj
+0 -13 Td
+(Core: Data Structures & Algorithms, OOP, DBMS, SQL, Operating Systems) Tj
+0 -13 Td
+(Backend & Web: Node.js, Express.js, Flask, REST APIs, HTML, CSS, React.js) Tj
+0 -13 Td
+(Databases & Tools: MySQL, MongoDB, VS Code, Git, GitHub, MongoDB Compass) Tj
+0 -22 Td
+(PROJECTS) Tj
+0 -14 Td
+(GetCareerPilot - AI-Powered Career Guidance Platform (2026)) Tj
+0 -13 Td
+(- Developed platform using JS & Google Gemini API for personalized career recommendations) Tj
+0 -13 Td
+(- Built personalized roadmaps, resume skill-gap analysis, and AI mentor chatbot) Tj
+0 -15 Td
+(Skipline - Smart University Queue Management System (2025 - Present)) Tj
+0 -13 Td
+(- Developed smart queue & ordering platform using MERN stack technologies) Tj
+0 -13 Td
+(- Implemented digital token generation & real-time queue tracking for campus services) Tj
+0 -15 Td
+(Student Management System (2024)) Tj
+0 -13 Td
+(- Developed CRUD application with role-based access control and optimized SQL queries) Tj
+0 -22 Td
+(CERTIFICATIONS & ACHIEVEMENTS) Tj
+0 -14 Td
+(- Bharatiya Antariksh Hackathon 2025 (ISRO / Hack2Skill) & Solved 100+ DSA Problems) Tj
+0 -13 Td
+(- AI Fundamentals (IBM SkillsBuild) | AWS Academy Graduate - Cloud Foundations) Tj
+0 -13 Td
+(- Introduction to Modern AI (Cisco Academy) | Microsoft Azure Essentials (Great Learning)) Tj
 ET
 endstream
 endobj
@@ -57,9 +83,9 @@ xref
 0000000060 00000 n 
 0000000117 00000 n 
 0000000233 00000 n 
-0000000785 00000 n 
+0000001485 00000 n 
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-855
+1555
 %%EOF

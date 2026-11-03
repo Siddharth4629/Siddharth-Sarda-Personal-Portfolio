@@ -10,6 +10,9 @@ import {
   ArrowRight,
   TrendingUp,
   Cpu,
+  Database,
+  ShieldCheck,
+  TableProperties,
 } from 'lucide-react';
 
 export default function ProjectMockupVisual({ projectId }) {
@@ -17,31 +20,31 @@ export default function ProjectMockupVisual({ projectId }) {
     return (
       <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#121216] to-[#0A0A0D] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
         {/* Glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full pointer-events-none" />
 
         {/* Top Header */}
         <div className="flex items-center justify-between z-10">
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[11px] font-mono text-emerald-400">
-              Live Queue Sync • Ably Realtime
+              Live Queue Tracking • MERN Stack
             </span>
           </div>
           <span className="text-[10px] font-mono text-[#A1A1AA] bg-[#18181B] px-2 py-0.5 rounded border border-[#27272A]">
-            Campus Food Court
+            Campus Dining & Services
           </span>
         </div>
 
         {/* Middle Digital Token Card */}
-        <div className="z-10 bg-[#18181B]/90 border border-purple-500/30 rounded-xl p-3 shadow-lg flex items-center justify-between">
+        <div className="z-10 bg-[#18181B]/90 border border-cyan-500/30 rounded-xl p-3 shadow-lg flex items-center justify-between">
           <div>
             <div className="text-[10px] text-[#A1A1AA] uppercase tracking-wider font-mono">
-              Active Token
+              Digital Token
             </div>
             <div className="text-2xl font-mono font-bold text-[#F4F4F5] flex items-center gap-2">
-              <span>#A-42</span>
-              <span className="text-[11px] font-sans font-normal text-purple-300 bg-purple-500/20 px-2 py-0.5 rounded-full">
-                Preparing
+              <span>#PU-108</span>
+              <span className="text-[11px] font-sans font-normal text-cyan-300 bg-cyan-500/20 px-2 py-0.5 rounded-full">
+                Live Status
               </span>
             </div>
           </div>
@@ -52,16 +55,95 @@ export default function ProjectMockupVisual({ projectId }) {
               <span>Est. Wait</span>
             </div>
             <div className="text-base font-mono font-semibold text-cyan-400">
-              ~6 mins
+              ~4 mins
             </div>
           </div>
         </div>
 
         {/* Bottom stats */}
         <div className="grid grid-cols-3 gap-2 z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
-          <div>Orders ahead: <span className="text-[#F4F4F5]">3</span></div>
-          <div className="text-center">Auth: <span className="text-purple-300">Clerk</span></div>
-          <div className="text-right">DB: <span className="text-cyan-300">PostgreSQL</span></div>
+          <div>Module: <span className="text-[#F4F4F5]">Student & Vendor</span></div>
+          <div className="text-center">Stack: <span className="text-purple-300">Express + React</span></div>
+          <div className="text-right">DB: <span className="text-emerald-400">MongoDB</span></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (projectId === 'getcareerpilot') {
+    return (
+      <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#120F1C] to-[#0A0912] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full pointer-events-none" />
+
+        <div className="flex items-center justify-between z-10">
+          <div className="text-[11px] font-mono text-purple-300 flex items-center gap-1.5">
+            <Sparkles size={13} className="text-purple-400" />
+            <span>Google Gemini AI API • JSON Schema</span>
+          </div>
+          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-800/40 px-2 py-0.5 rounded">
+            Target: Graduate SDE
+          </span>
+        </div>
+
+        {/* Readiness Meter Card */}
+        <div className="z-10 bg-[#18181B] border border-[#27272A] rounded-xl p-3 space-y-2">
+          <div className="flex justify-between items-center text-xs">
+            <span className="text-[#A1A1AA]">Skill-Gap Analysis & Match</span>
+            <span className="font-mono font-bold text-purple-400">92% Ready</span>
+          </div>
+          <div className="w-full bg-[#09090B] rounded-full h-2 overflow-hidden border border-[#27272A]">
+            <div className="bg-gradient-to-r from-purple-500 to-cyan-400 h-full rounded-full" style={{ width: '92%' }} />
+          </div>
+          <div className="flex justify-between text-[10px] font-mono text-[#A1A1AA] pt-0.5">
+            <span>DSA & Backend: Strong</span>
+            <span className="text-cyan-400">Personalized Roadmap Active</span>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
+          <span>AI Mentor Chatbot</span>
+          <span className="text-purple-300">LocalStorage Persistent State</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (projectId === 'student-management') {
+    return (
+      <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#0F1612] to-[#0A0F0D] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none" />
+
+        <div className="flex items-center justify-between z-10">
+          <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+            <Database size={13} />
+            <span>Academic CRUD Database System</span>
+          </div>
+          <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/40 border border-cyan-800/30 px-2 py-0.5 rounded">
+            Role-Based Access Control
+          </span>
+        </div>
+
+        {/* Database records preview */}
+        <div className="bg-[#18181B] border border-[#27272A] rounded-xl p-3 z-10 space-y-2">
+          <div className="flex justify-between items-center text-xs">
+            <span className="font-mono text-[#F4F4F5] flex items-center gap-1.5">
+              <ShieldCheck size={14} className="text-emerald-400" />
+              <span>Optimized SQL Queries (3NF)</span>
+            </span>
+            <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
+              ACID Compliant
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-[10px] font-mono text-[#A1A1AA] bg-[#09090B] p-2 rounded border border-[#27272A]">
+            <div>Admin: <span className="text-emerald-300">Full</span></div>
+            <div>Faculty: <span className="text-cyan-300">Grades</span></div>
+            <div>Student: <span className="text-purple-300">Read-only</span></div>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
+          <span>MySQL / Relational</span>
+          <span className="text-emerald-400">Indexed Query Plans</span>
         </div>
       </div>
     );
@@ -72,7 +154,6 @@ export default function ProjectMockupVisual({ projectId }) {
       <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#0F141C] to-[#0A0D12] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
         <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full pointer-events-none" />
 
-        {/* Top bar */}
         <div className="flex items-center justify-between z-10">
           <div className="flex items-center gap-1.5 bg-cyan-950/60 border border-cyan-800/40 text-cyan-300 text-[10px] font-mono px-2 py-0.5 rounded-full">
             <Sparkles size={10} />
@@ -84,10 +165,9 @@ export default function ProjectMockupVisual({ projectId }) {
           </div>
         </div>
 
-        {/* Task Cards preview */}
         <div className="grid grid-cols-2 gap-2 z-10">
           <div className="bg-[#18181B] border border-[#27272A] rounded-lg p-2.5 space-y-1">
-            <div className="text-[9px] font-mono text-purple-400 uppercase">AI Generated Task</div>
+            <div className="text-[9px] font-mono text-purple-400 uppercase">AI Task Breakdown</div>
             <div className="text-xs font-semibold text-[#F4F4F5] truncate">
               Design DB Sharding Strategy
             </div>
@@ -108,48 +188,9 @@ export default function ProjectMockupVisual({ projectId }) {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
           <span>React 18 + Vite</span>
           <span>MongoDB + JWT</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (projectId === 'getcareerpilot') {
-    return (
-      <div className="w-full h-48 sm:h-52 bg-gradient-to-br from-[#120F1C] to-[#0A0912] p-4 flex flex-col justify-between border-b border-[#27272A] relative overflow-hidden font-sans select-none">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full pointer-events-none" />
-
-        <div className="flex items-center justify-between z-10">
-          <div className="text-[11px] font-mono text-purple-300 flex items-center gap-1.5">
-            <TrendingUp size={13} className="text-purple-400" />
-            <span>AI Career Readiness Analysis</span>
-          </div>
-          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-800/40 px-2 py-0.5 rounded">
-            Target: SDE-1
-          </span>
-        </div>
-
-        {/* Readiness Meter Card */}
-        <div className="z-10 bg-[#18181B] border border-[#27272A] rounded-xl p-3 space-y-2">
-          <div className="flex justify-between items-center text-xs">
-            <span className="text-[#A1A1AA]">Profile Match Score</span>
-            <span className="font-mono font-bold text-purple-400">88% Ready</span>
-          </div>
-          <div className="w-full bg-[#09090B] rounded-full h-2 overflow-hidden border border-[#27272A]">
-            <div className="bg-gradient-to-r from-purple-500 to-cyan-400 h-full rounded-full" style={{ width: '88%' }} />
-          </div>
-          <div className="flex justify-between text-[10px] font-mono text-[#A1A1AA] pt-0.5">
-            <span>Core DSA: Strong</span>
-            <span className="text-cyan-400">Roadmap: Week 3 of 8</span>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between z-10 text-[10px] font-mono text-[#A1A1AA] pt-1 border-t border-[#27272A]/60">
-          <span>AI Resume Parser</span>
-          <span>Interactive Chatbot Mentor</span>
         </div>
       </div>
     );
@@ -170,7 +211,6 @@ export default function ProjectMockupVisual({ projectId }) {
         </span>
       </div>
 
-      {/* Module preview */}
       <div className="bg-[#18181B] border border-[#27272A] rounded-xl p-3 z-10 space-y-1.5">
         <div className="flex justify-between items-center text-xs">
           <span className="font-semibold text-[#F4F4F5] flex items-center gap-1.5">

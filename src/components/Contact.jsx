@@ -13,6 +13,7 @@ import {
   Sparkles,
   ExternalLink,
   MessageSquare,
+  Phone,
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import confetti from 'canvas-confetti';
@@ -31,6 +32,7 @@ export default function Contact({ onOpenResume }) {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [statusMessage, setStatusMessage] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const validate = () => {
     const newErrors = {};
@@ -136,6 +138,12 @@ export default function Contact({ onOpenResume }) {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  const copyPhoneToClipboard = () => {
+    navigator.clipboard.writeText(personalInfo.contactInfo.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2500);
+  };
+
   const mailtoLink = `mailto:${personalInfo.socialLinks.email}?subject=${encodeURIComponent(
     formData.subject || 'Portfolio Inquiry / Opportunity'
   )}&body=${encodeURIComponent(
@@ -208,6 +216,39 @@ export default function Contact({ onOpenResume }) {
                   aria-label="Copy email"
                 >
                   {copiedEmail ? (
+                    <Check size={16} className="text-emerald-400" />
+                  ) : (
+                    <Copy size={16} />
+                  )}
+                </button>
+              </div>
+
+              {/* Phone Number with Call & Copy Button */}
+              <div className="p-4 rounded-xl bg-[#09090B] border border-[#27272A] flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 overflow-hidden">
+                  <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+                    <Phone size={18} />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="text-[10px] font-mono text-[#A1A1AA] block uppercase">
+                      Phone Number
+                    </span>
+                    <a
+                      href={`tel:${personalInfo.contactInfo.phone}`}
+                      className="text-xs sm:text-sm font-mono text-[#F4F4F5] hover:text-cyan-300 truncate block transition-colors"
+                    >
+                      {personalInfo.contactInfo.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <button
+                  onClick={copyPhoneToClipboard}
+                  className="p-2 rounded-lg bg-[#18181B] hover:bg-[#27272A] text-[#A1A1AA] hover:text-[#F4F4F5] border border-[#27272A] transition-colors shrink-0"
+                  title="Copy phone number to clipboard"
+                  aria-label="Copy phone number"
+                >
+                  {copiedPhone ? (
                     <Check size={16} className="text-emerald-400" />
                   ) : (
                     <Copy size={16} />

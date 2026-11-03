@@ -9,18 +9,18 @@ import {
   ExternalLink,
   Calendar,
   CheckCircle2,
-  Edit3,
-  Flame,
+  Code2,
+  Check,
 } from 'lucide-react';
 import { achievementsData } from '../data/portfolioData';
 
 export default function Achievements() {
-  const [activeTab, setActiveTab] = useState('hackathons');
+  const [activeTab, setActiveTab] = useState('achievements');
 
   const tabs = [
-    { id: 'hackathons', label: 'Hackathons', icon: Trophy, count: achievementsData.hackathons.length },
-    { id: 'training', label: 'Technical Training', icon: BookOpen, count: achievementsData.technicalTraining.length },
+    { id: 'achievements', label: 'Achievements', icon: Trophy, count: achievementsData.achievementsList.length },
     { id: 'certifications', label: 'Certifications', icon: Award, count: achievementsData.certifications.length },
+    { id: 'training', label: 'Technical Training', icon: BookOpen, count: achievementsData.technicalTraining.length },
     { id: 'experience', label: 'Work Experience', icon: Briefcase, count: 1 },
   ];
 
@@ -35,13 +35,13 @@ export default function Achievements() {
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-800/40 text-purple-300 text-xs font-mono mb-3">
             <Sparkles size={12} />
-            <span>HONEST MILESTONES</span>
+            <span>CREDENTIALS & TRACK RECORD</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F4F4F5]">
             Certifications & <span className="gradient-text-purple">Achievements</span>
           </h2>
           <p className="mt-3 text-base text-[#A1A1AA] max-w-2xl">
-            Verified competitions, technical training modules, academic credentials, and current industry experience readiness.
+            Verified certifications from AWS, Cisco, IBM, and ISRO/Hack2Skill, alongside competitive problem-solving and software milestones.
           </p>
           <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mt-4" />
         </div>
@@ -78,71 +78,89 @@ export default function Achievements() {
         {/* Tab Content Panels */}
         <div className="max-w-4xl mx-auto">
           
-          {/* 1. Hackathons Tab */}
-          {activeTab === 'hackathons' && (
+          {/* 1. Achievements Tab */}
+          {activeTab === 'achievements' && (
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="space-y-4"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
-              {achievementsData.hackathons.map((hackathon) => (
+              {achievementsData.achievementsList.map((item, idx) => (
                 <div
-                  key={hackathon.id}
-                  className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 hover:border-purple-500/40 transition-all shadow-xl group relative overflow-hidden"
+                  key={idx}
+                  className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 hover:border-purple-500/40 transition-all shadow-xl group flex flex-col justify-between"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-                    <div className="flex items-center gap-3">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
                       <div className="w-10 h-10 rounded-xl bg-purple-600/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
-                        <Trophy size={20} />
+                        <Trophy size={18} />
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="text-lg font-bold text-[#F4F4F5] group-hover:text-purple-300 transition-colors">
-                            {hackathon.title}
-                          </h3>
-                          {hackathon.isEditable && (
-                            <span
-                              className="text-[10px] font-mono bg-purple-950/60 text-purple-300 border border-purple-800/40 px-2 py-0.5 rounded flex items-center gap-1"
-                              title="Configured in portfolioData.js"
-                            >
-                              <Edit3 size={10} />
-                              <span>Editable Entry</span>
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-xs text-cyan-400 font-mono mt-0.5">
-                          {hackathon.role} • {hackathon.year}
-                        </p>
-                      </div>
+                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                        {item.badge}
+                      </span>
                     </div>
 
-                    <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 self-start sm:self-auto">
-                      {hackathon.status}
-                    </span>
+                    <h3 className="text-base font-bold text-[#F4F4F5] group-hover:text-purple-300 transition-colors mb-2">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
 
-                  <p className="text-sm text-[#A1A1AA] leading-relaxed mb-4">
-                    {hackathon.description}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#27272A]">
-                    <span className="text-xs text-[#71717A] font-mono">Tech Focus:</span>
-                    {hackathon.technologies.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs font-mono px-2.5 py-0.5 rounded bg-[#09090B] text-[#D4D4D8] border border-[#27272A]"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                  <div className="mt-4 pt-3 border-t border-[#27272A]/70 flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                    <CheckCircle2 size={13} />
+                    <span>Verified Milestone</span>
                   </div>
                 </div>
               ))}
             </motion.div>
           )}
 
-          {/* 2. Technical Training Tab */}
+          {/* 2. Certifications Tab */}
+          {activeTab === 'certifications' && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
+              {achievementsData.certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 hover:border-purple-500/40 transition-all shadow-xl group"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
+                        <Award size={18} />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-[#F4F4F5] group-hover:text-purple-300 transition-colors">
+                          {cert.title}
+                        </h3>
+                        <p className="text-xs font-mono text-cyan-400">
+                          {cert.issuer} • {cert.year}
+                        </p>
+                      </div>
+                    </div>
+
+                    <span className="text-xs font-mono text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded border border-purple-500/20 self-start sm:self-auto">
+                      {cert.badge}
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mt-2 pl-12">
+                    {cert.description}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* 3. Technical Training Tab */}
           {activeTab === 'training' && (
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -172,42 +190,6 @@ export default function Achievements() {
                   </div>
                 </div>
               ))}
-            </motion.div>
-          )}
-
-          {/* 3. Certifications Tab */}
-          {activeTab === 'certifications' && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-4"
-            >
-              {achievementsData.certifications.map((cert, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6 hover:border-purple-500/40 transition-all"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                    <h3 className="text-base font-bold text-[#F4F4F5]">
-                      {cert.title}
-                    </h3>
-                    <span className="text-xs font-mono text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded border border-purple-500/20 self-start sm:self-auto">
-                      {cert.badge}
-                    </span>
-                  </div>
-                  <p className="text-xs font-mono text-cyan-400 mb-2">
-                    Issuer: {cert.issuer} • {cert.year}
-                  </p>
-                  <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed">
-                    {cert.description}
-                  </p>
-                </div>
-              ))}
-
-              <div className="p-4 rounded-xl bg-[#18181B]/60 border border-dashed border-[#27272A] text-center text-xs font-mono text-[#71717A]">
-                Note: Industry certifications will be published here upon official examination completion. No unverified credentials listed.
-              </div>
             </motion.div>
           )}
 
@@ -251,7 +233,7 @@ export default function Achievements() {
 
                   <div className="p-3 bg-[#09090B] rounded-xl border border-[#27272A] flex flex-wrap items-center justify-between gap-3 text-xs">
                     <span className="text-[#A1A1AA]">
-                      Interested in hiring or discussing opportunities?
+                      Interested in discussing an engineering role or interview?
                     </span>
                     <a
                       href="#contact"

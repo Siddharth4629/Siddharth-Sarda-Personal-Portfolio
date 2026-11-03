@@ -115,6 +115,9 @@ export default function About() {
                     <h4 className="text-base font-semibold text-[#F4F4F5]">
                       {btechInfo.degree}
                     </h4>
+                    <p className="text-xs text-cyan-400 font-mono mt-0.5">
+                      {btechInfo.institution} • {btechInfo.location}
+                    </p>
                   </div>
                 </div>
 
