@@ -1,16 +1,17 @@
-# Siddharth Sarda – Premium Personal Developer Portfolio
+# Siddharth Sarda — Software Developer Portfolio
 
 <p align="center">
-  <img src="public/favicon.svg" width="72" height="72" alt="Siddharth Sarda Logo" />
+  <img src="public/favicon.svg" width="68" height="68" alt="Siddharth Sarda Logo" />
 </p>
 
 <p align="center">
   <strong>Computer Science Undergraduate • B.Tech CSE (2023–2027) • Parul University</strong><br />
-  <em>Software Developer | Full Stack Developer | AI Enthusiast</em>
+  <em>Software Developer | Full Stack Developer | AI Application Developer</em>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Siddharth4629"><img src="https://img.shields.io/badge/GitHub-Siddharth4629-8B5CF6?style=flat-square&logo=github" alt="GitHub" /></a>
+  <a href="https://pesonal-portfolio-drab.vercel.app/"><img src="https://img.shields.io/badge/Live_Site-pesonal--portfolio--drab.vercel.app-8B5CF6?style=flat-square&logo=vercel" alt="Live Website" /></a>
+  <a href="https://github.com/Siddharth4629"><img src="https://img.shields.io/badge/GitHub-Siddharth4629-18181B?style=flat-square&logo=github" alt="GitHub" /></a>
   <a href="https://www.linkedin.com/in/siddharth-sarda-5090a1358/"><img src="https://img.shields.io/badge/LinkedIn-siddharth--sarda-06B6D4?style=flat-square&logo=linkedin" alt="LinkedIn" /></a>
   <a href="mailto:siddharthsarda742@gmail.com"><img src="https://img.shields.io/badge/Email-siddharthsarda742%40gmail.com-10B981?style=flat-square&logo=gmail" alt="Email" /></a>
   <a href="tel:+918788668577"><img src="https://img.shields.io/badge/Phone-%2B91--8788668577-F59E0B?style=flat-square" alt="Phone" /></a>
@@ -18,105 +19,117 @@
 
 ---
 
-## 🌟 Highlights & Key Features
+## 🌟 Executive Overview & Key Features
 
-- **Theme & Aesthetic**: Premium dark-mode design (`#09090B` background, `#18181B` card containers, `#8B5CF6` primary violet, and `#06B6D4` secondary cyan accents).
-- **Hero Section**: Dynamic headline, customizable availability badge (*"Seeking Graduate Software Engineer Role"*), animated entrance with Framer Motion, instant resume download, in-browser CV preview, and an interactive developer config visual (`developer.config.json`).
-- **About Me**: Verbatim academic narrative, core engineering philosophy (*Practical Engineering*, *AI Integration*, *Solid Foundations*), and structured areas of interest.
-- **Technical Skills Matrix**: Organized into clean visual categories (Programming Languages: C++, Java, Python, JavaScript; Core Concepts: DSA, OOP, DBMS, SQL, OS; Frontend; Backend; Databases; AI & Generative AI; Platforms & Integrations: Supabase, Neon DB, Prisma, Clerk, Ably, ImageKit; and Tools) with contextual micro-tags—**no arbitrary percentage meters**.
-- **Featured Projects**:
-  - **GetCareerPilot (2026)**: AI-Powered Career Discovery Platform utilizing Google Gemini 2.5 Flash across 12 industry sectors, RIASEC aptitude assessment, career exploration, entrance exam & scholarship guidance, AI roadmaps, resume skill-gap analysis, mock interview evaluation with structured JSON responses, Node.js/Express gateway, and Supabase PostgreSQL with LocalStorage offline fallback.
-  - **SkipLine (2025–Present)**: Smart University Queue Management System built with React.js, Node.js, Express.js, PostgreSQL (Neon DB), Prisma ORM, Clerk authentication, Ably real-time messaging, ImageKit cloud storage, digital tokens, and live queue tracking.
-  - **Student Management System (2024)**: Academic CRUD database application with role-based access control and normalized SQL queries.
-  - **CollabMind**: Real-time collaborative workspace with Socket.IO & Gemini AI sprint task breakdown.
-  - **GramShiksha AI**: Offline-first educational PWA for rural learners with clear implemented vs. roadmap separation.
-  - Interactive **Project Details Modal** with architectural highlights and engineering choices.
-- **Education Timeline**: 
-  - **Parul University, Vadodara, Gujarat** — B.Tech in Computer Science and Engineering (2023–2027), CGPA: 6.75.
-  - **Shroff High School and Junior College, Maharashtra** — Maharashtra State Board Class XII (2023), 83.17%.
-- **17 Verified & Deduplicated Certifications**:
-  - Every certificate from `e:\Certificate` has been audited to eliminate duplicate formats (`.pdf` vs `_page-0001.jpg`) and badges.
-  - Includes an **in-app Certificate Document Viewer modal** with direct PDF/image previews, download triggers, and online verification links (Credly, Great Learning, CodeTantra, etc.).
-- **Achievements**:
-  - **100+ Solved DSA problems** across arrays, strings, stacks, queues, and sorting algorithms.
-  - **AI Platform Integration** with Google Gemini API & structured JSON schema outputs.
-  - **Bharatiya Antariksh Hackathon 2025** (ISRO / Hack2Skill).
-  - **Cognizant Technoverse Hackathon 2026** (Superset ID: `SUPERSET-9D6E8-7A010`).
-- **Contact Section**: Complete validation, EmailJS integration ready, with graceful fallback, realistic feedback, celebration confetti (`canvas-confetti`), 1-click call/copy for phone (+91-8788668577), and pre-filled email client (`mailto:`) button.
-- **ATS Resume Preview & Download**: Interactive modal for on-screen CV preview plus direct download of `public/resume.pdf`.
+A modern, recruiter-focused personal portfolio engineered for **Siddharth Sarda**, Computer Science undergraduate (2023–2027) at Parul University. Built with React, Vite, Tailwind CSS, and Framer Motion, reflecting the latest November 2026 resume.
 
----
-
-## 📜 Verified Certifications Catalog (17 Deduplicated Credentials)
-
-| Certificate Title | Issuing Organization | Date / Year | Credential ID / Verification | Category |
-| :--- | :--- | :--- | :--- | :--- |
-| **Bharatiya Antariksh Hackathon 2025** | ISRO / Hack2Skill | 2025 | `2025H2S06BAH25-P30111` | Hackathons |
-| **Cognizant Technoverse Hackathon 2026** | Cognizant | 2026 | `SUPERSET-9D6E8-7A010` | Hackathons |
-| **AI Fundamentals with IBM SkillsBuild** | IBM SkillsBuild / Cisco | Sep 2025 | [Credly Badge](https://www.credly.com/badges/ba45ab09-07b3-44d6-b14d-4124668c0d25) | AI & ML |
-| **Introduction to Modern AI** | Cisco Networking Academy | Oct 2025 | Verified Course Completion | AI & ML |
-| **Data Analytics Essentials** | Cisco Networking Academy | Jul 2026 | `0592741d-8ae1-4cfe-807e-a3037463f1bb` | Data Science |
-| **AWS Academy Graduate – Cloud Foundations** | AWS Academy | Aug 2025 | [Credly Verification](https://www.credly.com/go/y7RDyWUB) | Cloud Computing |
-| **AWS Cloud Practitioner Essentials** | AWS Training & Certification | Sep 2025 | Official AWS Course | Cloud Computing |
-| **AWS Billing and Cost Management** | AWS Training & Certification | Oct 2025 | Official AWS Course | Cloud Computing |
-| **Microsoft Azure Essentials** | Great Learning Academy | Apr 2024 | [`JYVSBUFW`](https://www.mygreatlearning.com/certificate/JYVSBUFW) | Cloud Computing |
-| **Design and Analysis of Algorithm (DAA)** | CodeTantra / Parul University | Dec 2025 | [`CT1941-uNPulti-chC`](https://paruluniversity.codetantra.com/cert/certificate.jsp?certId=CT1941-uNPulti-chC) | Core CS |
-| **MERN Full Stack Development** | Unstop | 2025 | Certificate of Completion | Full Stack |
-| **Hashgraph Developer Course** | The Hashgraph Association (Hedera) | Dec 2025 | Official Developer Credential | Web3 & Distributed |
-| **Introduction to IoT & Digital Transformation** | Cisco Networking Academy | Oct 2025 | Verified Course Completion | IoT & Systems |
-| **Google Gemini QuizOff 2026 (100K Special)** | CampusCrew / Google Gemini | 2026 | National AI Competition | AI & Competitions |
-| **National Data Science Olympiad** | SRMIST / Unstop | 2026 | National Assessment | Data Science |
-| **Basic to Advanced Microsoft Excel** | Skill Nation | 2025 | `2D0AED52E4A1-2D0B1D00DB91-85D7C3ABF7` | Productivity Tools |
-| **Basic to Advanced MS PowerPoint** | Skill Nation | 2025 | `2D0B1D01294C-2D0B1D0129B3-85D7C3ABF7` | Productivity Tools |
+- **Design Philosophy**: High-end SaaS-inspired dark theme (`#09090B` background, `#111116` secondary background, `#18181B` card containers, `#8B5CF6` primary violet, and `#06B6D4` secondary cyan).
+- **Typography Stack**:
+  - **Space Grotesk**: Headings and titles for a distinctive technical aesthetic.
+  - **Inter**: Crisp, readable body typography.
+  - **JetBrains Mono**: Selected technical labels, tags, and metadata.
+- **Dedicated Project Case Studies (`/projects/:slug`)**:
+  - Full client-side SPA routing powered by `react-router-dom` with automatic scroll reset (`<ScrollToTop />`).
+  - Comprehensive architectural breakdown for every primary project across 13 engineering sections (Problem Statement, Objective, Contributions, Architecture Flows, Tech Stack, Key Features, Challenges & Solutions, Visual Mockups, and Key Learnings).
+- **Primary Featured Projects**:
+  1. **GetCareerPilot (Flagship Project)**: AI-Powered Career Discovery Platform utilizing **Google Gemini 2.5 Flash** across 12 industry sectors, RIASEC aptitude assessment, career exploration, college discovery, entrance exam & scholarship guidance, personalized weekly roadmaps, resume skill-gap analysis, mock interview evaluation with structured JSON responses, Node.js/Express gateway, and Supabase PostgreSQL with LocalStorage offline fallback.
+  2. **SkipLine (Full Stack Development)**: Smart University Queue Management System engineered with **React.js, Node.js, Express.js, PostgreSQL (Neon DB), Prisma ORM, Clerk authentication, Ably real-time WebSockets**, and ImageKit cloud storage for digital tokens and live queue throughput.
+  3. **Student Management System (Academic Project)**: Academic CRUD database application with 3NF relational normalization in MySQL, role-based access control (Admin, Faculty, Student), and index-tuned SQL queries.
+  - **Additional Exploratory Projects**: Dedicated expandable drawer featuring **CollabMind** (React 18, Vite, Socket.IO, Gemini API, MongoDB) and **GramShiksha AI** (Offline-first PWA, IndexedDB).
+- **Live Active EmailJS Gateway**:
+  - Pre-configured with active Service ID (`service_9xluspg`), Template ID (`template_q23codh`), and Public Key (`9chjyW5jdRDHGcviX`).
+  - Form validation, dynamic dispatch state, celebration confetti (`canvas-confetti`), and direct one-click `mailto:` fallback.
+- **ATS Resume Download & In-Browser Viewer**:
+  - Authentic 55.6 KB compiled LaTeX PDF (`public/resume.pdf` & `public/Siddharth_Sarda_Resume.pdf`).
+  - Dual-mode interactive modal (`ResumeModal.jsx`) toggling between responsive card view and embedded PDF document.
+- **Verified Credentials**:
+  - 4 primary highlighted certifications (IBM SkillsBuild AI Fundamentals, AWS Academy Cloud Foundations, Cisco Modern AI, Microsoft Azure Essentials).
+  - In-app **Certificate Document Viewer modal** (`CertificateModal.jsx`) inspecting verified credentials.
+- **SEO & Google Discoverability**:
+  - Semantic HTML5, OpenGraph tags, `sitemap.xml`, `robots.txt`, and Schema.org `Person` JSON-LD structured data.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technical Skills Matrix
+
+| Category | Technologies & Tools |
+| :--- | :--- |
+| **Programming Languages** | C++, Java, Python, JavaScript |
+| **Core Computer Science** | Data Structures and Algorithms (100+ Solved), Object-Oriented Programming (OOP), DBMS, SQL, Operating Systems |
+| **Frontend** | HTML5, CSS3, React.js, Tailwind CSS |
+| **Backend** | Node.js, Express.js, RESTful APIs |
+| **Databases** | PostgreSQL, MySQL, MongoDB |
+| **AI & Generative AI** | Google Gemini API (Gemini 2.5 Flash), LLM Integration, Prompt Engineering, Structured JSON Outputs |
+| **Platforms & Integrations** | Supabase, Neon DB, Prisma ORM, Clerk, Ably WebSockets, ImageKit CDN |
+| **Development Tools** | VS Code, Git, GitHub, Postman, MongoDB Compass |
+
+---
+
+## 🚀 Dedicated Project Case Studies
+
+| Project | Category | Technology Highlights | Route Link |
+| :--- | :--- | :--- | :--- |
+| **GetCareerPilot** | AI Application Development | JavaScript, Gemini 2.5 Flash, Node.js, Express.js, Supabase, LocalStorage | [`/projects/getcareerpilot`](https://pesonal-portfolio-drab.vercel.app/projects/getcareerpilot) |
+| **SkipLine** | Full Stack Development | React.js, Node.js, Express.js, PostgreSQL (Neon DB), Prisma, Clerk, Ably, ImageKit | [`/projects/skipline`](https://pesonal-portfolio-drab.vercel.app/projects/skipline) |
+| **Student Management System** | Academic Project | Node.js, Express.js, MySQL, SQL, Role-Based Access Control, 3NF Normalization | [`/projects/student-management-system`](https://pesonal-portfolio-drab.vercel.app/projects/student-management-system) |
+
+---
+
+## 📁 Project Directory Structure
 
 ```text
 portfolio/
 ├── public/
-│   ├── certificates/           # All 17 deduplicated high-res certificates (PNG/JPG/PDF)
-│   ├── favicon.svg             # Custom monogram SVG favicon
-│   └── resume.pdf              # Downloadable resume document
+│   ├── certificates/           # Verified certificate assets (PNG / JPG / PDF)
+│   ├── favicon.svg             # Monogram SVG brand icon
+│   ├── resume.pdf              # Verified downloadable resume PDF (55.6 KB)
+│   ├── Siddharth_Sarda_Resume.pdf # Mirror downloadable resume
+│   ├── robots.txt              # Search crawler instructions
+│   └── sitemap.xml             # Search engine index with case study URLs
 ├── src/
-│   ├── assets/                 # Static visual assets
 │   ├── components/
-│   │   ├── Navbar.jsx          # Sticky glassmorphic navigation with active scroll tracking
-│   │   ├── Hero.jsx            # Hero section with animated developer card & CTAs
-│   │   ├── About.jsx           # Narrative, core values & areas of interest
-│   │   ├── Skills.jsx          # Visual categorized skill matrices with filter tabs
-│   │   ├── Projects.jsx        # Project cards with tag filters & interactive previews
-│   │   ├── ProjectMockupVisual.jsx # Domain-specific UI previews for projects
-│   │   ├── ProjectModal.jsx    # In-depth architectural breakdown dialog
-│   │   ├── Education.jsx       # Academic timeline with credentials
-│   │   ├── Achievements.jsx    # Hackathons, technical training & 17 certificates
-│   │   ├── CertificateModal.jsx# Lightbox document viewer for certificates
-│   │   ├── Contact.jsx         # Form with validation, EmailJS & 1-click fallback
+│   │   ├── About.jsx           # Engineering profile, degree info & core focus areas
+│   │   ├── Achievements.jsx    # Key achievements & highlighted certifications
+│   │   ├── CertificateModal.jsx# Lightbox viewer for certificates
+│   │   ├── Contact.jsx         # EmailJS dispatch form with validation & mailto fallback
+│   │   ├── Education.jsx       # Academic timeline (Parul University & Shroff High School)
 │   │   ├── Footer.jsx          # Brand info, social links & back-to-top button
-│   │   └── ResumeModal.jsx     # On-screen CV viewer & printer
+│   │   ├── Hero.jsx            # Editorial 2-column hero with abstract developer visual
+│   │   ├── Navbar.jsx          # Sticky navigation with hash scroll & route return
+│   │   ├── ProjectMockupVisual.jsx # Interactive UI previews for projects
+│   │   ├── ProjectModal.jsx    # Quick project overview dialog
+│   │   ├── Projects.jsx        # Featured 3-project showcase & exploratory drawer
+│   │   ├── ResumeModal.jsx     # Dual-mode on-screen / PDF viewer
+│   │   ├── ScrollToTop.jsx     # Route change scroll reset handler
+│   │   └── Skills.jsx          # Categorized icon matrices with filter tabs
 │   ├── data/
-│   │   └── portfolioData.js    # Single centralized config for all personal details
+│   │   ├── portfolioData.js    # Centralized personal info, skills & achievements
+│   │   └── projectsCaseStudies.js # Detailed architectural data for case study pages
+│   ├── pages/
+│   │   ├── Home.jsx            # Main single-page portfolio layout
+│   │   └── ProjectDetail.jsx   # Dedicated 13-section project case study page
 │   ├── utils/
-│   │   └── IconHelper.jsx      # High-performance tree-shaken Lucide icons
-│   ├── App.jsx                 # Main layout & modal controller
-│   ├── index.css               # Tailwind directives & custom glassmorphism styles
-│   └── main.jsx                # Vite entry point
-├── vercel.json                 # Vercel deployment configuration
-├── tailwind.config.js          # Extended theme colors & animations
+│   │   └── IconHelper.jsx      # Tree-shaken Lucide icon helper
+│   ├── App.jsx                 # Client-side router & modal provider
+│   ├── index.css               # Tailwind directives & Space Grotesk heading rules
+│   └── main.jsx                # Application root entry point
+├── .env.example                # EmailJS environment variable template
+├── vercel.json                 # Vercel SPA rewrites & security headers
+├── tailwind.config.js          # Color palette & font family extensions
 └── package.json
 ```
 
 ---
 
-## ⚙️ Centralized Configuration (`src/data/portfolioData.js`)
+## ⚙️ Configuration & Environment Variables
 
-All personal details, URLs, social links, phone number, and credentials can be updated in **one single file**:
+All personal details, URLs, social handles, and credentials are consolidated in **`src/data/portfolioData.js`** and **`.env`**:
 
 ```javascript
+// src/data/portfolioData.js
 export const personalInfo = {
   name: "Siddharth Sarda",
-  targetRole: "Graduate Software Engineer",
+  title: "Software Developer",
   contactInfo: {
     phone: "+91-8788668577",
     email: "siddharthsarda742@gmail.com",
@@ -133,30 +146,36 @@ export const personalInfo = {
     fileName: "Siddharth_Sarda_Resume.pdf",
   },
 };
+
+export const emailjsConfig = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_9xluspg",
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_q23codh",
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "9chjyW5jdRDHGcviX",
+};
 ```
 
 ---
 
-## 🚀 Getting Started Locally
+## 💻 Local Development & Build
 
 ### 1. Prerequisites
 - **Node.js** v18+ (tested on Node v22)
 - **npm** v9+
 
-### 2. Installation
+### 2. Clone & Install
 ```bash
-git clone https://github.com/Siddharth4629/Personal_Portfolio.git
-cd Personal_Portfolio
+git clone https://github.com/Siddharth4629/Siddharth-Sarda-Personal-Portfolio.git
+cd Siddharth-Sarda-Personal-Portfolio
 npm install
 ```
 
-### 3. Local Development Server
+### 3. Run Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit `http://localhost:3000` in your browser.
 
-### 4. Production Build
+### 4. Build for Production
 ```bash
 npm run build
 ```
@@ -169,11 +188,23 @@ npm run preview
 
 ---
 
-## 🌐 Deploying to Vercel
+## 🌐 Deployment to Vercel
 
-This portfolio is configured for zero-config deployment on [Vercel](https://vercel.com):
+Configured for zero-config SPA deployment on [Vercel](https://vercel.com):
 
-1. Go to [Vercel](https://vercel.com) and log in with your GitHub account (`Siddharth4629`).
-2. Click **"Add New Project"** and select **`Personal_Portfolio`** from your repository list.
-3. Framework Preset will automatically detect as **Vite**.
-4. Click **"Deploy"**. Your portfolio will be live with free global CDN and HTTPS!
+1. Connect your repository (`Siddharth-Sarda-Personal-Portfolio`) to Vercel.
+2. Framework Preset will be automatically detected as **Vite**.
+3. Direct refresh of deep case study links (`/projects/getcareerpilot`, `/projects/skipline`, etc.) is fully handled via SPA rewrites in `vercel.json`:
+   ```json
+   {
+     "framework": "vite",
+     "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+   }
+   ```
+4. Click **Deploy**. Your site will be live with free global CDN and HTTPS.
+
+---
+
+## 📄 License & Attribution
+
+Designed and engineered by **Siddharth Sarda** © 2026. All rights reserved.
