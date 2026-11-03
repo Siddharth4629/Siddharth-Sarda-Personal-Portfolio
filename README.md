@@ -145,8 +145,8 @@ export const personalInfo = {
 
 ### 2. Installation
 ```bash
-git clone https://github.com/Siddharth4629/Pesonal_Portfolio.git
-cd Pesonal_Portfolio
+git clone https://github.com/Siddharth4629/Personal_Portfolio.git
+cd Personal_Portfolio
 npm install
 ```
 
@@ -174,6 +174,6 @@ npm run preview
 This portfolio is configured for zero-config deployment on [Vercel](https://vercel.com):
 
 1. Go to [Vercel](https://vercel.com) and log in with your GitHub account (`Siddharth4629`).
-2. Click **"Add New Project"** and select **`Pesonal_Portfolio`** from your repository list.
+2. Click **"Add New Project"** and select **`Personal_Portfolio`** from your repository list.
 3. Framework Preset will automatically detect as **Vite**.
 4. Click **"Deploy"**. Your portfolio will be live with free global CDN and HTTPS!
